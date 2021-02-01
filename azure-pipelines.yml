@@ -45,9 +45,9 @@ steps:
 
 - task: DownloadBuildArtifacts@0
   inputs:
-    buildType: 'specific' # Options: current, specific
-    project: 'gatsby-starter-default' # Required when buildType == Specific
-    pipeline: 'super-specials' # Required when buildType == Specific
+    buildType: 'current' # Options: current, specific
+    #project: 'gatsby-starter-default' # Required when buildType == Specific
+    #pipeline: 'super-specials' # Required when buildType == Specific
     #specificBuildWithTriggering: false # Optional
     #buildVersionToDownload: 'latest' # Required when buildType == Specific# Options: latest, latestFromBranch, specific
     #branchName: 'refs/heads/master' # Required when buildType == Specific && BuildVersionToDownload == LatestFromBranch
