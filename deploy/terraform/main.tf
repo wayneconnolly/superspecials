@@ -23,7 +23,7 @@ resource "azurerm_storage_account" "superspecials" {
   account_replication_type = "LRS"
 
    provisioner "local-exec" {
-    command = "az storage blob service-properties update --account-name ${azurerm_storage_account.superspecials} --static-website  --index-document index.html --404-document 404.html"
+    command = "az storage blob service-properties update --account-name ${azurerm_storage_account.superspecials.site} --static-website  --index-document index.html --404-document 404.html"
   }
 }
 
