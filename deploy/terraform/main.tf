@@ -28,10 +28,13 @@ resource "azurerm_storage_account" "super" {
 }
 
 # Query Web Endpoint for Static Hosting
-module "query_url" {
+module "files" {
   source  = "matti/resource/shell"
 
   command = "printf $(az storage account show -n ${azurerm_storage_account.webblob.name} -g ${azurerm_resource_group.demo-rg.name} --query \"primaryEndpoints.web\" --output tsv | cut -d \"/\" -f 3)"
+}
+output "my_static" {
+  value = "${module.files.stdout}"
 }
 
 

@@ -1,0 +1,899 @@
+2021-02-01T12:39:54.3438506Z ##[section]Starting: Job
+2021-02-01T12:39:54.5005946Z ##[section]Starting: Initialize job
+2021-02-01T12:39:54.5007243Z Agent name: 'Hosted Agent'
+2021-02-01T12:39:54.5007641Z Agent machine name: 'fv-az215-623'
+2021-02-01T12:39:54.5007883Z Current agent version: '2.181.1'
+2021-02-01T12:39:54.5052647Z ##[group]Operating System
+2021-02-01T12:39:54.5052905Z Ubuntu
+2021-02-01T12:39:54.5053051Z 20.04.1
+2021-02-01T12:39:54.5053203Z LTS
+2021-02-01T12:39:54.5053352Z ##[endgroup]
+2021-02-01T12:39:54.5053544Z ##[group]Virtual Environment
+2021-02-01T12:39:54.5053750Z Environment: ubuntu-20.04
+2021-02-01T12:39:54.5053938Z Version: 20210123.1
+2021-02-01T12:39:54.5054270Z Included Software: https://github.com/actions/virtual-environments/blob/ubuntu20/20210123.1/images/linux/Ubuntu2004-README.md
+2021-02-01T12:39:54.5054569Z ##[endgroup]
+2021-02-01T12:39:54.5055581Z Current image version: '20210123.1'
+2021-02-01T12:39:54.5057406Z Agent running as: 'vsts'
+2021-02-01T12:39:54.5103678Z Prepare build directory.
+2021-02-01T12:39:54.5405331Z Set build variables.
+2021-02-01T12:39:54.5442442Z Download all required tasks.
+2021-02-01T12:39:54.5576811Z Downloading task: NodeTool (0.179.1)
+2021-02-01T12:39:56.3071038Z Downloading task: CmdLine (2.178.0)
+2021-02-01T12:39:56.5382876Z Downloading task: CopyFiles (2.180.1)
+2021-02-01T12:39:56.6398123Z Downloading task: PublishBuildArtifacts (1.158.3)
+2021-02-01T12:39:56.7338328Z Downloading task: DownloadBuildArtifacts (0.178.0)
+2021-02-01T12:39:57.2142545Z Checking job knob settings.
+2021-02-01T12:39:57.2154073Z    Knob: AgentToolsDirectory = /opt/hostedtoolcache Source: ${AGENT_TOOLSDIRECTORY} 
+2021-02-01T12:39:57.2155987Z    Knob: AgentPerflog = /home/vsts/perflog Source: ${VSTS_AGENT_PERFLOG} 
+2021-02-01T12:39:57.2156855Z Finished checking job knob settings.
+2021-02-01T12:39:57.3763911Z Plugin: 'Test Result Parser plugin' is running in background.
+2021-02-01T12:39:57.3764272Z Plugin: 'Test File Publisher plugin' is running in background.
+2021-02-01T12:39:57.3765042Z Start tracking orphan processes.
+2021-02-01T12:39:57.3959659Z ##[section]Finishing: Initialize job
+2021-02-01T12:39:57.4410008Z ##[section]Starting: Initialize containers
+2021-02-01T12:39:57.4585910Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+2021-02-01T12:39:58.3095152Z '1.40'
+2021-02-01T12:39:58.3111871Z Docker daemon API version: '1.40'
+2021-02-01T12:39:58.3112234Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+2021-02-01T12:39:59.3185725Z '1.40'
+2021-02-01T12:39:59.3187401Z Docker client API version: '1.40'
+2021-02-01T12:39:59.3205802Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=a03785"
+2021-02-01T12:39:59.3777555Z ##[command]/usr/bin/docker network prune --force --filter "label=a03785"
+2021-02-01T12:39:59.4482546Z ##[command]/usr/bin/docker pull lenisha/terraform-light
+2021-02-01T12:39:59.4903135Z Using default tag: latest
+2021-02-01T12:40:02.3064566Z latest: Pulling from lenisha/terraform-light
+2021-02-01T12:40:02.3091852Z b5e173e44934: Pulling fs layer
+2021-02-01T12:40:02.3093075Z 29047100b040: Pulling fs layer
+2021-02-01T12:40:02.3094037Z 15743a713c2a: Pulling fs layer
+2021-02-01T12:40:02.3094743Z 4b6bc9e29877: Pulling fs layer
+2021-02-01T12:40:02.3095531Z 09909b34d56b: Pulling fs layer
+2021-02-01T12:40:02.3096115Z 085465d7aca7: Pulling fs layer
+2021-02-01T12:40:02.3096690Z 1aa273e2d62b: Pulling fs layer
+2021-02-01T12:40:02.3097278Z 4b6bc9e29877: Waiting
+2021-02-01T12:40:02.3097835Z 09909b34d56b: Waiting
+2021-02-01T12:40:02.3098407Z 085465d7aca7: Waiting
+2021-02-01T12:40:02.3098958Z 1aa273e2d62b: Waiting
+2021-02-01T12:40:03.2746755Z 15743a713c2a: Verifying Checksum
+2021-02-01T12:40:03.2747659Z 15743a713c2a: Download complete
+2021-02-01T12:40:03.2748030Z 29047100b040: Verifying Checksum
+2021-02-01T12:40:03.2748428Z 29047100b040: Download complete
+2021-02-01T12:40:03.5981416Z b5e173e44934: Verifying Checksum
+2021-02-01T12:40:03.5989849Z b5e173e44934: Download complete
+2021-02-01T12:40:04.2103100Z 4b6bc9e29877: Verifying Checksum
+2021-02-01T12:40:04.2104409Z 4b6bc9e29877: Download complete
+2021-02-01T12:40:04.6079757Z 09909b34d56b: Verifying Checksum
+2021-02-01T12:40:04.6081733Z 09909b34d56b: Download complete
+2021-02-01T12:40:04.6998855Z 085465d7aca7: Verifying Checksum
+2021-02-01T12:40:04.7046623Z 085465d7aca7: Download complete
+2021-02-01T12:40:05.9887512Z b5e173e44934: Pull complete
+2021-02-01T12:40:06.0981277Z 29047100b040: Pull complete
+2021-02-01T12:40:06.1026440Z 1aa273e2d62b: Verifying Checksum
+2021-02-01T12:40:06.1027044Z 1aa273e2d62b: Download complete
+2021-02-01T12:40:06.1643645Z 15743a713c2a: Pull complete
+2021-02-01T12:40:06.2353121Z 4b6bc9e29877: Pull complete
+2021-02-01T12:40:07.3749778Z 09909b34d56b: Pull complete
+2021-02-01T12:40:08.1719243Z 085465d7aca7: Pull complete
+2021-02-01T12:40:19.5433209Z 1aa273e2d62b: Pull complete
+2021-02-01T12:40:19.5472112Z Digest: sha256:bb84bb50482aa1cc816f947af7a4592b4ebc65a8ca9f6e4cf2a7197173af47a0
+2021-02-01T12:40:19.5512544Z Status: Downloaded newer image for lenisha/terraform-light:latest
+2021-02-01T12:40:19.5515839Z docker.io/lenisha/terraform-light:latest
+2021-02-01T12:40:19.5554504Z ##[command]/usr/bin/docker info -f "{{range .Plugins.Network}}{{println .}}{{end}}"
+2021-02-01T12:40:20.0610447Z bridge
+2021-02-01T12:40:20.0651793Z host
+2021-02-01T12:40:20.0654485Z ipvlan
+2021-02-01T12:40:20.0654827Z macvlan
+2021-02-01T12:40:20.0654992Z null
+2021-02-01T12:40:20.0655140Z overlay
+2021-02-01T12:40:20.0703471Z ##[command]/usr/bin/docker network create --label a03785 vsts_network_28f675b36b774ecea179cbbdf179e8be
+2021-02-01T12:40:20.1827035Z d4f1fdfec1575566a996bffc54e0b829df04ef5c97a547e0584393513a8fd1f9
+2021-02-01T12:40:20.2112902Z ##[command]/usr/bin/docker inspect --format="{{index .Config.Labels \"com.azure.dev.pipelines.agent.handler.node.path\"}}" lenisha/terraform-light
+2021-02-01T12:40:20.2667271Z ##[command]/usr/bin/docker create --name terraform_container_lenishaterraformlight_00230a --label a03785 --network vsts_network_28f675b36b774ecea179cbbdf179e8be  -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/vsts/work/1":"/__w/1" -v "/home/vsts/work/_temp":"/__w/_temp" -v "/home/vsts/work/_tasks":"/__w/_tasks" -v "/opt/hostedtoolcache":"/__t" -v "/home/vsts/agents/2.181.1/externals":"/__a/externals":ro -v "/home/vsts/work/.taskkey":"/__w/.taskkey" lenisha/terraform-light "/__a/externals/node/bin/node" -e "setInterval(function(){}, 24 * 60 * 60 * 1000);"
+2021-02-01T12:40:26.8529174Z c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad
+2021-02-01T12:40:26.8574099Z ##[command]/usr/bin/docker start c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad
+2021-02-01T12:40:27.3849624Z c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad
+2021-02-01T12:40:27.3923953Z ##[command]/usr/bin/docker ps --all --filter id=c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+2021-02-01T12:40:27.4409405Z c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad Up Less than a second
+2021-02-01T12:40:27.4451589Z ##[command]/usr/bin/docker exec  c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad sh -c "command -v bash"
+2021-02-01T12:40:27.5725379Z /bin/bash
+2021-02-01T12:40:27.6215913Z ##[command]whoami 
+2021-02-01T12:40:27.6363004Z vsts
+2021-02-01T12:40:27.6363299Z ##[command]id -u vsts
+2021-02-01T12:40:27.7147344Z 1001
+2021-02-01T12:40:27.7147803Z Try to create a user with UID '1001' inside the container.
+2021-02-01T12:40:27.7161634Z ##[command]/usr/bin/docker exec  c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad bash -c "getent passwd 1001 | cut -d: -f1 "
+2021-02-01T12:40:27.8747759Z ##[command]/usr/bin/docker exec  c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad useradd -m -u 1001 vsts_azpcontainer
+2021-02-01T12:40:28.0694653Z Grant user 'vsts_azpcontainer' SUDO privilege and allow it run any command without authentication.
+2021-02-01T12:40:28.0695436Z ##[command]/usr/bin/docker exec  c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad groupadd azure_pipelines_sudo
+2021-02-01T12:40:28.2541913Z ##[command]/usr/bin/docker exec  c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad usermod -a -G azure_pipelines_sudo vsts_azpcontainer
+2021-02-01T12:40:28.4224691Z ##[command]/usr/bin/docker exec  c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad su -c "echo '%azure_pipelines_sudo ALL=(ALL:ALL) NOPASSWD:ALL' >> /etc/sudoers"
+2021-02-01T12:40:28.5928231Z Allow user 'vsts_azpcontainer' run any docker command without SUDO.
+2021-02-01T12:40:28.5929880Z ##[command]stat -c %g /var/run/docker.sock
+2021-02-01T12:40:28.6221063Z 122
+2021-02-01T12:40:28.6221753Z ##[command]/usr/bin/docker exec  c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad bash -c "cat /etc/group"
+2021-02-01T12:40:28.7800401Z ##[command]/usr/bin/docker exec  c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad groupadd -g 122 azure_pipelines_docker
+2021-02-01T12:40:28.9533517Z ##[command]/usr/bin/docker exec  c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad usermod -a -G azure_pipelines_docker vsts_azpcontainer
+2021-02-01T12:40:29.1565989Z ##[section]Finishing: Initialize containers
+2021-02-01T12:40:29.1623804Z ##[section]Starting: Checkout wayneconnolly/superspecials@master to s
+2021-02-01T12:40:29.1919901Z ==============================================================================
+2021-02-01T12:40:29.1921707Z Task         : Get sources
+2021-02-01T12:40:29.1922754Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2021-02-01T12:40:29.1923395Z Version      : 1.0.0
+2021-02-01T12:40:29.1924118Z Author       : Microsoft
+2021-02-01T12:40:29.1925185Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2021-02-01T12:40:29.1925791Z ==============================================================================
+2021-02-01T12:40:29.7127985Z Syncing repository: wayneconnolly/superspecials (GitHub)
+2021-02-01T12:40:29.7327942Z ##[command]git version
+2021-02-01T12:40:29.7869575Z git version 2.30.0
+2021-02-01T12:40:29.7971216Z ##[command]git lfs version
+2021-02-01T12:40:29.9398132Z git-lfs/2.13.2 (GitHub; linux amd64; go 1.15.5)
+2021-02-01T12:40:29.9579333Z ##[command]git init "/home/vsts/work/1/s"
+2021-02-01T12:40:29.9698859Z hint: Using 'master' as the name for the initial branch. This default branch name
+2021-02-01T12:40:29.9701055Z hint: is subject to change. To configure the initial branch name to use in all
+2021-02-01T12:40:29.9702253Z hint: of your new repositories, which will suppress this warning, call:
+2021-02-01T12:40:29.9703086Z hint: 
+2021-02-01T12:40:29.9703865Z hint: 	git config --global init.defaultBranch <name>
+2021-02-01T12:40:29.9704326Z hint: 
+2021-02-01T12:40:29.9704982Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2021-02-01T12:40:29.9706225Z hint: 'development'. The just-created branch can be renamed via this command:
+2021-02-01T12:40:29.9706737Z hint: 
+2021-02-01T12:40:29.9707256Z hint: 	git branch -m <name>
+2021-02-01T12:40:29.9740606Z Initialized empty Git repository in /home/vsts/work/1/s/.git/
+2021-02-01T12:40:29.9742601Z ##[command]git remote add origin https://github.com/wayneconnolly/superspecials
+2021-02-01T12:40:29.9802638Z ##[command]git config gc.auto 0
+2021-02-01T12:40:29.9848879Z ##[command]git config --get-all http.https://github.com/wayneconnolly/superspecials.extraheader
+2021-02-01T12:40:29.9886574Z ##[command]git config --get-all http.proxy
+2021-02-01T12:40:29.9924305Z ##[command]git config http.version HTTP/1.1
+2021-02-01T12:40:30.0037146Z ##[command]git -c http.extraheader="AUTHORIZATION: basic ***" fetch --force --tags --prune --progress --no-recurse-submodules origin
+2021-02-01T12:40:32.0888594Z remote: Enumerating objects: 62, done.        
+2021-02-01T12:40:32.0891215Z remote: Counting objects:   1% (1/62)        
+2021-02-01T12:40:32.0893820Z remote: Counting objects:   3% (2/62)        
+2021-02-01T12:40:32.0897053Z remote: Counting objects:   4% (3/62)        
+2021-02-01T12:40:32.0898198Z remote: Counting objects:   6% (4/62)        
+2021-02-01T12:40:32.0899748Z remote: Counting objects:   8% (5/62)        
+2021-02-01T12:40:32.0900966Z remote: Counting objects:   9% (6/62)        
+2021-02-01T12:40:32.0901986Z remote: Counting objects:  11% (7/62)        
+2021-02-01T12:40:32.0903102Z remote: Counting objects:  12% (8/62)        
+2021-02-01T12:40:32.0904015Z remote: Counting objects:  14% (9/62)        
+2021-02-01T12:40:32.0916637Z remote: Counting objects:  16% (10/62)        
+2021-02-01T12:40:32.0918499Z remote: Counting objects:  17% (11/62)        
+2021-02-01T12:40:32.0927664Z remote: Counting objects:  19% (12/62)        
+2021-02-01T12:40:32.0929087Z remote: Counting objects:  20% (13/62)        
+2021-02-01T12:40:32.0937945Z remote: Counting objects:  22% (14/62)        
+2021-02-01T12:40:32.0939388Z remote: Counting objects:  24% (15/62)        
+2021-02-01T12:40:32.0940495Z remote: Counting objects:  25% (16/62)        
+2021-02-01T12:40:32.0941582Z remote: Counting objects:  27% (17/62)        
+2021-02-01T12:40:32.0947939Z remote: Counting objects:  29% (18/62)        
+2021-02-01T12:40:32.0949180Z remote: Counting objects:  30% (19/62)        
+2021-02-01T12:40:32.0950337Z remote: Counting objects:  32% (20/62)        
+2021-02-01T12:40:32.0950917Z remote: Counting objects:  33% (21/62)        
+2021-02-01T12:40:32.0951427Z remote: Counting objects:  35% (22/62)        
+2021-02-01T12:40:32.0951970Z remote: Counting objects:  37% (23/62)        
+2021-02-01T12:40:32.0952663Z remote: Counting objects:  38% (24/62)        
+2021-02-01T12:40:32.0953512Z remote: Counting objects:  40% (25/62)        
+2021-02-01T12:40:32.0954029Z remote: Counting objects:  41% (26/62)        
+2021-02-01T12:40:32.0954774Z remote: Counting objects:  43% (27/62)        
+2021-02-01T12:40:32.0955297Z remote: Counting objects:  45% (28/62)        
+2021-02-01T12:40:32.0955967Z remote: Counting objects:  46% (29/62)        
+2021-02-01T12:40:32.0956473Z remote: Counting objects:  48% (30/62)        
+2021-02-01T12:40:32.0956979Z remote: Counting objects:  50% (31/62)        
+2021-02-01T12:40:32.0957672Z remote: Counting objects:  51% (32/62)        
+2021-02-01T12:40:32.0958216Z remote: Counting objects:  53% (33/62)        
+2021-02-01T12:40:32.0958695Z remote: Counting objects:  54% (34/62)        
+2021-02-01T12:40:32.0959211Z remote: Counting objects:  56% (35/62)        
+2021-02-01T12:40:32.0959912Z remote: Counting objects:  58% (36/62)        
+2021-02-01T12:40:32.0960452Z remote: Counting objects:  59% (37/62)        
+2021-02-01T12:40:32.0960987Z remote: Counting objects:  61% (38/62)        
+2021-02-01T12:40:32.0961502Z remote: Counting objects:  62% (39/62)        
+2021-02-01T12:40:32.0962034Z remote: Counting objects:  64% (40/62)        
+2021-02-01T12:40:32.0963002Z remote: Counting objects:  66% (41/62)        
+2021-02-01T12:40:32.0963748Z remote: Counting objects:  67% (42/62)        
+2021-02-01T12:40:32.0964288Z remote: Counting objects:  69% (43/62)        
+2021-02-01T12:40:32.0964785Z remote: Counting objects:  70% (44/62)        
+2021-02-01T12:40:32.0965340Z remote: Counting objects:  72% (45/62)        
+2021-02-01T12:40:32.0966024Z remote: Counting objects:  74% (46/62)        
+2021-02-01T12:40:32.0966548Z remote: Counting objects:  75% (47/62)        
+2021-02-01T12:40:32.0967067Z remote: Counting objects:  77% (48/62)        
+2021-02-01T12:40:32.0967573Z remote: Counting objects:  79% (49/62)        
+2021-02-01T12:40:32.0968354Z remote: Counting objects:  80% (50/62)        
+2021-02-01T12:40:32.0968897Z remote: Counting objects:  82% (51/62)        
+2021-02-01T12:40:32.0969767Z remote: Counting objects:  83% (52/62)        
+2021-02-01T12:40:32.0970305Z remote: Counting objects:  85% (53/62)        
+2021-02-01T12:40:32.0970821Z remote: Counting objects:  87% (54/62)        
+2021-02-01T12:40:32.0971508Z remote: Counting objects:  88% (55/62)        
+2021-02-01T12:40:32.0972029Z remote: Counting objects:  90% (56/62)        
+2021-02-01T12:40:32.0972741Z remote: Counting objects:  91% (57/62)        
+2021-02-01T12:40:32.0973278Z remote: Counting objects:  93% (58/62)        
+2021-02-01T12:40:32.0973982Z remote: Counting objects:  95% (59/62)        
+2021-02-01T12:40:32.0974533Z remote: Counting objects:  96% (60/62)        
+2021-02-01T12:40:32.0975072Z remote: Counting objects:  98% (61/62)        
+2021-02-01T12:40:32.0975612Z remote: Counting objects: 100% (62/62)        
+2021-02-01T12:40:32.0976320Z remote: Counting objects: 100% (62/62), done.        
+2021-02-01T12:40:32.0976849Z remote: Compressing objects:   2% (1/48)        
+2021-02-01T12:40:32.2231189Z remote: Compressing objects:   4% (2/48)        
+2021-02-01T12:40:32.2233245Z remote: Compressing objects:   6% (3/48)        
+2021-02-01T12:40:32.2233833Z remote: Compressing objects:   8% (4/48)        
+2021-02-01T12:40:32.2234558Z remote: Compressing objects:  10% (5/48)        
+2021-02-01T12:40:32.2235133Z remote: Compressing objects:  12% (6/48)        
+2021-02-01T12:40:32.2235847Z remote: Compressing objects:  14% (7/48)        
+2021-02-01T12:40:32.2237520Z remote: Compressing objects:  16% (8/48)        
+2021-02-01T12:40:32.2238044Z remote: Compressing objects:  18% (9/48)        
+2021-02-01T12:40:32.2239022Z remote: Compressing objects:  20% (10/48)        
+2021-02-01T12:40:32.2240039Z remote: Compressing objects:  22% (11/48)        
+2021-02-01T12:40:32.2241392Z remote: Compressing objects:  25% (12/48)        
+2021-02-01T12:40:32.2241927Z remote: Compressing objects:  27% (13/48)        
+2021-02-01T12:40:32.2242460Z remote: Compressing objects:  29% (14/48)        
+2021-02-01T12:40:32.2243002Z remote: Compressing objects:  31% (15/48)        
+2021-02-01T12:40:32.2244830Z remote: Compressing objects:  33% (16/48)        
+2021-02-01T12:40:32.2245372Z remote: Compressing objects:  35% (17/48)        
+2021-02-01T12:40:32.2245907Z remote: Compressing objects:  37% (18/48)        
+2021-02-01T12:40:32.2246437Z remote: Compressing objects:  39% (19/48)        
+2021-02-01T12:40:32.2246970Z remote: Compressing objects:  41% (20/48)        
+2021-02-01T12:40:32.2249126Z remote: Compressing objects:  43% (21/48)        
+2021-02-01T12:40:32.2249686Z remote: Compressing objects:  45% (22/48)        
+2021-02-01T12:40:32.2250209Z remote: Compressing objects:  47% (23/48)        
+2021-02-01T12:40:32.2250738Z remote: Compressing objects:  50% (24/48)        
+2021-02-01T12:40:32.2251407Z remote: Compressing objects:  52% (25/48)        
+2021-02-01T12:40:32.2252961Z remote: Compressing objects:  54% (26/48)        
+2021-02-01T12:40:32.2253631Z remote: Compressing objects:  56% (27/48)        
+2021-02-01T12:40:32.2254293Z remote: Compressing objects:  58% (28/48)        
+2021-02-01T12:40:32.2255068Z remote: Compressing objects:  60% (29/48)        
+2021-02-01T12:40:32.2256765Z remote: Compressing objects:  62% (30/48)        
+2021-02-01T12:40:32.2257307Z remote: Compressing objects:  64% (31/48)        
+2021-02-01T12:40:32.2257833Z remote: Compressing objects:  66% (32/48)        
+2021-02-01T12:40:32.2258345Z remote: Compressing objects:  68% (33/48)        
+2021-02-01T12:40:32.2258925Z remote: Compressing objects:  70% (34/48)        
+2021-02-01T12:40:32.2259482Z remote: Compressing objects:  72% (35/48)        
+2021-02-01T12:40:32.2261023Z remote: Compressing objects:  75% (36/48)        
+2021-02-01T12:40:32.2262480Z remote: Compressing objects:  77% (37/48)        
+2021-02-01T12:40:32.2265534Z remote: Compressing objects:  79% (38/48)        
+2021-02-01T12:40:32.2267116Z remote: Compressing objects:  81% (39/48)        
+2021-02-01T12:40:32.2269240Z remote: Compressing objects:  83% (40/48)        
+2021-02-01T12:40:32.2271309Z remote: Compressing objects:  85% (41/48)        
+2021-02-01T12:40:32.2273106Z remote: Compressing objects:  87% (42/48)        
+2021-02-01T12:40:32.2275028Z remote: Compressing objects:  89% (43/48)        
+2021-02-01T12:40:32.2276992Z remote: Compressing objects:  91% (44/48)        
+2021-02-01T12:40:32.2278618Z remote: Compressing objects:  93% (45/48)        
+2021-02-01T12:40:32.2279406Z remote: Compressing objects:  95% (46/48)        
+2021-02-01T12:40:32.2280125Z remote: Compressing objects:  97% (47/48)        
+2021-02-01T12:40:32.2280858Z remote: Compressing objects: 100% (48/48)        
+2021-02-01T12:40:32.2281441Z remote: Compressing objects: 100% (48/48), done.        
+2021-02-01T12:40:33.2702679Z remote: Total 62 (delta 16), reused 57 (delta 11), pack-reused 0        
+2021-02-01T12:40:33.3358966Z From https://github.com/wayneconnolly/superspecials
+2021-02-01T12:40:33.3361170Z  * [new branch]      master     -> origin/master
+2021-02-01T12:40:33.4277243Z ##[command]git -c http.extraheader="AUTHORIZATION: basic ***" fetch --force --tags --prune --progress --no-recurse-submodules origin +3d3695d59feacf7dc77f09ed3f4fca81bd00eef7:refs/remotes/origin/3d3695d59feacf7dc77f09ed3f4fca81bd00eef7
+2021-02-01T12:40:34.7839458Z From https://github.com/wayneconnolly/superspecials
+2021-02-01T12:40:34.7842604Z  * [new ref]         3d3695d59feacf7dc77f09ed3f4fca81bd00eef7 -> origin/3d3695d59feacf7dc77f09ed3f4fca81bd00eef7
+2021-02-01T12:40:34.8678572Z ##[command]git checkout --progress --force 3d3695d59feacf7dc77f09ed3f4fca81bd00eef7
+2021-02-01T12:40:34.8688844Z Note: switching to '3d3695d59feacf7dc77f09ed3f4fca81bd00eef7'.
+2021-02-01T12:40:34.8690774Z 
+2021-02-01T12:40:34.8699636Z You are in 'detached HEAD' state. You can look around, make experimental
+2021-02-01T12:40:34.8701428Z changes and commit them, and you can discard any commits you make in this
+2021-02-01T12:40:34.8702652Z state without impacting any branches by switching back to a branch.
+2021-02-01T12:40:34.8703438Z 
+2021-02-01T12:40:34.8703969Z If you want to create a new branch to retain commits you create, you may
+2021-02-01T12:40:34.8704937Z do so (now or later) by using -c with the switch command. Example:
+2021-02-01T12:40:34.8705392Z 
+2021-02-01T12:40:34.8706063Z   git switch -c <new-branch-name>
+2021-02-01T12:40:34.8706442Z 
+2021-02-01T12:40:34.8706895Z Or undo this operation with:
+2021-02-01T12:40:34.8707227Z 
+2021-02-01T12:40:34.8707831Z   git switch -
+2021-02-01T12:40:34.8708155Z 
+2021-02-01T12:40:34.8708687Z Turn off this advice by setting config variable advice.detachedHead to false
+2021-02-01T12:40:34.8709076Z 
+2021-02-01T12:40:34.8709603Z HEAD is now at 3d3695d revert terraform because its getting late and im tired
+2021-02-01T12:40:34.8771027Z ##[section]Finishing: Checkout wayneconnolly/superspecials@master to s
+2021-02-01T12:40:34.8801894Z ##[section]Starting: Install Node.js
+2021-02-01T12:40:34.8812668Z ==============================================================================
+2021-02-01T12:40:34.8813459Z Task         : Node.js tool installer
+2021-02-01T12:40:34.8814117Z Description  : Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH
+2021-02-01T12:40:34.8814717Z Version      : 0.179.1
+2021-02-01T12:40:34.8815310Z Author       : Microsoft Corporation
+2021-02-01T12:40:34.8816011Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/tool/node-js
+2021-02-01T12:40:34.8816656Z ==============================================================================
+2021-02-01T12:40:35.6605493Z Found tool in cache: node 10.23.1 x64
+2021-02-01T12:40:35.6616365Z Prepending PATH environment variable with directory: /__t/node/10.23.1/x64/bin
+2021-02-01T12:40:35.7104269Z ##[section]Finishing: Install Node.js
+2021-02-01T12:40:35.7134459Z ##[section]Starting: install gatsby
+2021-02-01T12:40:35.7142789Z ==============================================================================
+2021-02-01T12:40:35.7143491Z Task         : Command line
+2021-02-01T12:40:35.7144173Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2021-02-01T12:40:35.7145246Z Version      : 2.178.0
+2021-02-01T12:40:35.7146083Z Author       : Microsoft Corporation
+2021-02-01T12:40:35.7147019Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2021-02-01T12:40:35.7148164Z ==============================================================================
+2021-02-01T12:40:36.0989027Z Generating script.
+2021-02-01T12:40:36.1020051Z Script contents:
+2021-02-01T12:40:36.1021325Z npm install -g gatsby-cli
+2021-02-01T12:40:36.1021929Z ========================== Starting Command Output ===========================
+2021-02-01T12:40:36.1035982Z [command]/bin/bash --noprofile --norc /__w/_temp/6bd728e4-f8ad-474c-84d7-b588f0b3065b.sh
+2021-02-01T12:40:42.9873810Z npm WARN deprecated @hapi/joi@15.1.1: Switch to 'npm install joi'
+2021-02-01T12:40:44.6681243Z npm WARN deprecated @hapi/bourne@1.3.2: This version has been deprecated and is no longer supported or maintained
+2021-02-01T12:40:44.6814226Z npm WARN deprecated @hapi/address@2.1.4: Moved to 'npm install @sideway/address'
+2021-02-01T12:40:44.6944410Z npm WARN deprecated @hapi/topo@3.1.6: This version has been deprecated and is no longer supported or maintained
+2021-02-01T12:40:44.7185424Z npm WARN deprecated @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+2021-02-01T12:41:06.2847223Z /__t/node/10.23.1/x64/bin/gatsby -> /__t/node/10.23.1/x64/lib/node_modules/gatsby-cli/cli.js
+2021-02-01T12:41:06.4958995Z 
+2021-02-01T12:41:06.4960721Z > gatsby-telemetry@1.9.0 postinstall /__t/node/10.23.1/x64/lib/node_modules/gatsby-cli/node_modules/gatsby-telemetry
+2021-02-01T12:41:06.4961524Z > node src/postinstall.js || true
+2021-02-01T12:41:06.4961841Z 
+2021-02-01T12:41:06.5935250Z 
+2021-02-01T12:41:06.5938011Z > gatsby-cli@2.18.0 postinstall /__t/node/10.23.1/x64/lib/node_modules/gatsby-cli
+2021-02-01T12:41:06.5939096Z > node scripts/postinstall.js
+2021-02-01T12:41:06.5939403Z 
+2021-02-01T12:41:08.4034980Z Success!
+2021-02-01T12:41:08.4035533Z 
+2021-02-01T12:41:08.4044435Z Welcome to the Gatsby CLI! Please visit https://www.gatsbyjs.org/docs/gatsby-cli/ for more information.
+2021-02-01T12:41:08.4045028Z 
+2021-02-01T12:41:09.7810600Z npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.3.1 (node_modules/gatsby-cli/node_modules/chokidar/node_modules/fsevents):
+2021-02-01T12:41:09.7812737Z npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.1: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+2021-02-01T12:41:09.7816451Z 
+2021-02-01T12:41:09.7840122Z + gatsby-cli@2.18.0
+2021-02-01T12:41:09.7841158Z added 555 packages from 633 contributors in 27.76s
+2021-02-01T12:41:09.8576750Z ##[section]Finishing: install gatsby
+2021-02-01T12:41:09.8610042Z ##[section]Starting: gatsby build
+2021-02-01T12:41:09.8619361Z ==============================================================================
+2021-02-01T12:41:09.8620000Z Task         : Command line
+2021-02-01T12:41:09.8620531Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2021-02-01T12:41:09.8621007Z Version      : 2.178.0
+2021-02-01T12:41:09.8621373Z Author       : Microsoft Corporation
+2021-02-01T12:41:09.8622060Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2021-02-01T12:41:09.8622623Z ==============================================================================
+2021-02-01T12:41:10.2349930Z Generating script.
+2021-02-01T12:41:10.2358988Z ========================== Starting Command Output ===========================
+2021-02-01T12:41:10.2388378Z [command]/bin/bash --noprofile --norc /__w/_temp/68b36537-4b13-4939-8c3d-034010a6cc75.sh
+2021-02-01T12:42:00.9451607Z 
+2021-02-01T12:42:00.9453173Z > sharp@0.25.4 install /__w/1/s/node_modules/sharp
+2021-02-01T12:42:00.9454900Z > (node install/libvips && node install/dll-copy && prebuild-install --runtime=napi) || (node-gyp rebuild && node install/dll-copy)
+2021-02-01T12:42:00.9455825Z 
+2021-02-01T12:42:01.2322033Z info sharp Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.9.1/libvips-8.9.1-linux-x64.tar.gz
+2021-02-01T12:42:06.7316582Z 
+2021-02-01T12:42:06.7317901Z > websocket@1.0.31 install /__w/1/s/node_modules/websocket
+2021-02-01T12:42:06.7319409Z > (node-gyp rebuild 2> builderror.log) || (exit 0)
+2021-02-01T12:42:06.7319890Z 
+2021-02-01T12:42:08.6736270Z 
+2021-02-01T12:42:08.6739307Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/bmp/node_modules/core-js
+2021-02-01T12:42:08.6740799Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:08.6741166Z 
+2021-02-01T12:42:08.7674127Z [96mThank you for using core-js ([94m https://github.com/zloirock/core-js [96m) for polyfilling JavaScript standard library![0m
+2021-02-01T12:42:08.7675340Z 
+2021-02-01T12:42:08.7676412Z [96mThe project needs your help! Please consider supporting of core-js on Open Collective or Patreon: [0m
+2021-02-01T12:42:08.7677547Z [96m>[94m https://opencollective.com/core-js [0m
+2021-02-01T12:42:08.7678729Z [96m>[94m https://www.patreon.com/zloirock [0m
+2021-02-01T12:42:08.7679125Z 
+2021-02-01T12:42:08.7680061Z [96mAlso, the author of core-js ([94m https://github.com/zloirock [96m) is looking for a good job -)[0m
+2021-02-01T12:42:08.7680586Z 
+2021-02-01T12:42:08.7727485Z 
+2021-02-01T12:42:08.7728873Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/core/node_modules/core-js
+2021-02-01T12:42:08.7729916Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:08.7730349Z 
+2021-02-01T12:42:08.8624383Z 
+2021-02-01T12:42:08.8626394Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/custom/node_modules/core-js
+2021-02-01T12:42:08.8627488Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:08.8628130Z 
+2021-02-01T12:42:08.9535270Z 
+2021-02-01T12:42:08.9537258Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/gif/node_modules/core-js
+2021-02-01T12:42:08.9538504Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:08.9538925Z 
+2021-02-01T12:42:09.0469843Z 
+2021-02-01T12:42:09.0471519Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/jpeg/node_modules/core-js
+2021-02-01T12:42:09.0472757Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:09.0473102Z 
+2021-02-01T12:42:09.1364499Z 
+2021-02-01T12:42:09.1366418Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-blit/node_modules/core-js
+2021-02-01T12:42:09.1367467Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:09.1367917Z 
+2021-02-01T12:42:09.2270722Z 
+2021-02-01T12:42:09.2273690Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-blur/node_modules/core-js
+2021-02-01T12:42:09.2274814Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:09.2275538Z 
+2021-02-01T12:42:09.3209199Z 
+2021-02-01T12:42:09.3211210Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-circle/node_modules/core-js
+2021-02-01T12:42:09.3212290Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:09.3212743Z 
+2021-02-01T12:42:09.4120980Z 
+2021-02-01T12:42:09.4123202Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-color/node_modules/core-js
+2021-02-01T12:42:09.4124472Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:09.4124897Z 
+2021-02-01T12:42:09.5049305Z 
+2021-02-01T12:42:09.5051439Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-contain/node_modules/core-js
+2021-02-01T12:42:09.5052534Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:09.5052996Z 
+2021-02-01T12:42:09.6020187Z 
+2021-02-01T12:42:09.6023075Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-cover/node_modules/core-js
+2021-02-01T12:42:09.6024672Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:09.6025415Z 
+2021-02-01T12:42:09.6989899Z 
+2021-02-01T12:42:09.6991728Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-crop/node_modules/core-js
+2021-02-01T12:42:09.6992541Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:09.6992795Z 
+2021-02-01T12:42:09.8068107Z 
+2021-02-01T12:42:09.8070591Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-displace/node_modules/core-js
+2021-02-01T12:42:09.8071993Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:09.8072735Z 
+2021-02-01T12:42:09.9005118Z 
+2021-02-01T12:42:09.9007578Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-dither/node_modules/core-js
+2021-02-01T12:42:09.9009762Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:09.9011046Z 
+2021-02-01T12:42:09.9903012Z 
+2021-02-01T12:42:09.9904978Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-fisheye/node_modules/core-js
+2021-02-01T12:42:09.9905981Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:09.9906401Z 
+2021-02-01T12:42:10.0831715Z 
+2021-02-01T12:42:10.0833934Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-flip/node_modules/core-js
+2021-02-01T12:42:10.0835341Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:10.0835806Z 
+2021-02-01T12:42:10.1749074Z 
+2021-02-01T12:42:10.1750875Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-gaussian/node_modules/core-js
+2021-02-01T12:42:10.1752156Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:10.1752582Z 
+2021-02-01T12:42:10.2713092Z 
+2021-02-01T12:42:10.2715581Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-invert/node_modules/core-js
+2021-02-01T12:42:10.2716542Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:10.2716898Z 
+2021-02-01T12:42:10.3641178Z 
+2021-02-01T12:42:10.3643720Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-mask/node_modules/core-js
+2021-02-01T12:42:10.3644745Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:10.3645179Z 
+2021-02-01T12:42:10.4581755Z 
+2021-02-01T12:42:10.4584317Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-normalize/node_modules/core-js
+2021-02-01T12:42:10.4585421Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:10.4585851Z 
+2021-02-01T12:42:10.5591066Z 
+2021-02-01T12:42:10.5592825Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-print/node_modules/core-js
+2021-02-01T12:42:10.5593861Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:10.5594267Z 
+2021-02-01T12:42:10.6521550Z 
+2021-02-01T12:42:10.6523711Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-resize/node_modules/core-js
+2021-02-01T12:42:10.6524814Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:10.6525249Z 
+2021-02-01T12:42:10.7454319Z 
+2021-02-01T12:42:10.7458395Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-rotate/node_modules/core-js
+2021-02-01T12:42:10.7459635Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:10.7460001Z 
+2021-02-01T12:42:10.8368236Z 
+2021-02-01T12:42:10.8370331Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-scale/node_modules/core-js
+2021-02-01T12:42:10.8376506Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:10.8376949Z 
+2021-02-01T12:42:10.9296117Z 
+2021-02-01T12:42:10.9299024Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-shadow/node_modules/core-js
+2021-02-01T12:42:10.9300272Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:10.9300697Z 
+2021-02-01T12:42:11.0210846Z 
+2021-02-01T12:42:11.0213075Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugin-threshold/node_modules/core-js
+2021-02-01T12:42:11.0214166Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:11.0214588Z 
+2021-02-01T12:42:11.1169248Z 
+2021-02-01T12:42:11.1171409Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/plugins/node_modules/core-js
+2021-02-01T12:42:11.1172358Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:11.1172711Z 
+2021-02-01T12:42:11.2091505Z 
+2021-02-01T12:42:11.2093482Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/png/node_modules/core-js
+2021-02-01T12:42:11.2094682Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:11.2095098Z 
+2021-02-01T12:42:11.2995756Z 
+2021-02-01T12:42:11.2997851Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/tiff/node_modules/core-js
+2021-02-01T12:42:11.2999236Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:11.2999658Z 
+2021-02-01T12:42:11.3986441Z 
+2021-02-01T12:42:11.3988356Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/types/node_modules/core-js
+2021-02-01T12:42:11.3989698Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:11.3990153Z 
+2021-02-01T12:42:11.5015034Z 
+2021-02-01T12:42:11.5017174Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/@jimp/utils/node_modules/core-js
+2021-02-01T12:42:11.5018388Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:11.5018803Z 
+2021-02-01T12:42:11.6507318Z 
+2021-02-01T12:42:11.6509098Z > core-js@2.6.11 postinstall /__w/1/s/node_modules/core-js
+2021-02-01T12:42:11.6509988Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:11.6510340Z 
+2021-02-01T12:42:11.7438702Z 
+2021-02-01T12:42:11.7441008Z > core-js-pure@3.6.5 postinstall /__w/1/s/node_modules/core-js-pure
+2021-02-01T12:42:11.7441999Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:11.7442412Z 
+2021-02-01T12:42:11.9268530Z 
+2021-02-01T12:42:11.9270690Z > core-js@3.6.5 postinstall /__w/1/s/node_modules/jimp/node_modules/core-js
+2021-02-01T12:42:11.9271664Z > node -e "try{require('./postinstall')}catch(e){}"
+2021-02-01T12:42:11.9272092Z 
+2021-02-01T12:42:12.3004965Z 
+2021-02-01T12:42:12.3007303Z > gatsby-telemetry@1.3.11 postinstall /__w/1/s/node_modules/gatsby-telemetry
+2021-02-01T12:42:12.3008636Z > node src/postinstall.js || true
+2021-02-01T12:42:12.3009038Z 
+2021-02-01T12:42:12.4349913Z 
+2021-02-01T12:42:12.4351999Z > cwebp-bin@5.1.0 postinstall /__w/1/s/node_modules/cwebp-bin
+2021-02-01T12:42:12.4352701Z > node lib/install.js
+2021-02-01T12:42:12.4353012Z 
+2021-02-01T12:42:13.1508282Z   âš  Command failed: /__w/1/s/node_modules/cwebp-bin/vendor/cwebp -version
+2021-02-01T12:42:13.1510653Z /__w/1/s/node_modules/cwebp-bin/vendor/cwebp: error while loading shared libraries: libGL.so.1: cannot open shared object file: No such file or directory
+2021-02-01T12:42:13.1511342Z 
+2021-02-01T12:42:13.1511606Z 
+2021-02-01T12:42:13.1519264Z   âš  cwebp pre-build test failed
+2021-02-01T12:42:13.1520237Z   â„¹ compiling from source
+2021-02-01T12:42:15.7653343Z   âœ– Error: Command failed: /bin/sh -c ./configure --disable-shared --prefix="/__w/1/s/node_modules/cwebp-bin/vendor" --bindir="/__w/1/s/node_modules/cwebp-bin/vendor"
+2021-02-01T12:42:15.7655878Z configure: error: in `/tmp/f3465b2c-9adf-443c-bde6-affadaac855e':
+2021-02-01T12:42:15.7657421Z configure: error: no acceptable C compiler found in $PATH
+2021-02-01T12:42:15.7658651Z See `config.log' for more details
+2021-02-01T12:42:15.7659352Z 
+2021-02-01T12:42:15.7660402Z checking build system type... x86_64-pc-linux-gnu
+2021-02-01T12:42:15.7661580Z checking host system type... x86_64-pc-linux-gnu
+2021-02-01T12:42:15.7665268Z checking for a BSD-compatible install... /usr/bin/install -c
+2021-02-01T12:42:15.7666015Z checking whether build environment is sane... yes
+2021-02-01T12:42:15.7666921Z checking for a thread-safe mkdir -p... /bin/mkdir -p
+2021-02-01T12:42:15.7667529Z checking for gawk... no
+2021-02-01T12:42:15.7668035Z checking for mawk... mawk
+2021-02-01T12:42:15.7668560Z checking whether make sets $(MAKE)... no
+2021-02-01T12:42:15.7669131Z checking whether make supports nested variables... no
+2021-02-01T12:42:15.7669728Z checking for style of include used by make... none
+2021-02-01T12:42:15.7670244Z checking for gcc... no
+2021-02-01T12:42:15.7670838Z checking for cc... no
+2021-02-01T12:42:15.7671349Z checking for cl.exe... no
+2021-02-01T12:42:15.7671654Z 
+2021-02-01T12:42:15.7672531Z     at Promise.all.then.arr (/__w/1/s/node_modules/bin-build/node_modules/execa/index.js:231:11)
+2021-02-01T12:42:15.7673413Z     at process._tickCallback (internal/process/next_tick.js:68:7)
+2021-02-01T12:42:15.7797792Z 
+2021-02-01T12:42:15.7798715Z > mozjpeg@6.0.1 postinstall /__w/1/s/node_modules/mozjpeg
+2021-02-01T12:42:15.7799511Z > node lib/install.js
+2021-02-01T12:42:15.7799830Z 
+2021-02-01T12:42:16.1729835Z   âœ” mozjpeg pre-build test passed successfully
+2021-02-01T12:42:16.1835573Z 
+2021-02-01T12:42:16.1837719Z > pngquant-bin@5.0.2 postinstall /__w/1/s/node_modules/pngquant-bin
+2021-02-01T12:42:16.1838687Z > node lib/install.js
+2021-02-01T12:42:16.1839200Z 
+2021-02-01T12:42:16.5548842Z   âœ” pngquant pre-build test passed successfully
+2021-02-01T12:42:16.5661376Z 
+2021-02-01T12:42:16.5663362Z > gatsby-cli@2.12.45 postinstall /__w/1/s/node_modules/gatsby/node_modules/gatsby-cli
+2021-02-01T12:42:16.5665825Z > node scripts/postinstall.js
+2021-02-01T12:42:16.5666476Z 
+2021-02-01T12:42:16.6663538Z 
+2021-02-01T12:42:16.6665473Z > gatsby@2.23.3 postinstall /__w/1/s/node_modules/gatsby
+2021-02-01T12:42:16.6666517Z > node scripts/postinstall.js
+2021-02-01T12:42:16.6667201Z 
+2021-02-01T12:42:19.8305990Z npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/fsevents):
+2021-02-01T12:42:19.8307476Z npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+2021-02-01T12:42:19.8443947Z npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.1.3 (node_modules/chokidar/node_modules/fsevents):
+2021-02-01T12:42:19.8445561Z npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+2021-02-01T12:42:19.8452143Z 
+2021-02-01T12:42:19.8781990Z added 2499 packages from 1414 contributors and audited 2508 packages in 69.095s
+2021-02-01T12:42:22.3442403Z 
+2021-02-01T12:42:22.3444537Z 143 packages are looking for funding
+2021-02-01T12:42:22.3445668Z   run `npm fund` for details
+2021-02-01T12:42:22.3446353Z 
+2021-02-01T12:42:22.3456221Z found 995 vulnerabilities (955 low, 40 high)
+2021-02-01T12:42:22.3457381Z   run `npm audit fix` to fix them, or `npm audit` for details
+2021-02-01T12:42:26.4781019Z success open and validate gatsby-configs - 0.024s
+2021-02-01T12:42:27.7923357Z success load plugins - 1.312s
+2021-02-01T12:42:27.8993927Z success onPreInit - 0.106s
+2021-02-01T12:42:27.9161032Z success delete html and css files from previous builds - 0.016s
+2021-02-01T12:42:27.9249340Z success initialize cache - 0.008s
+2021-02-01T12:42:27.9550499Z success copy gatsby files - 0.030s
+2021-02-01T12:42:27.9623733Z success onPreBootstrap - 0.007s
+2021-02-01T12:42:27.9682311Z success createSchemaCustomization - 0.006s
+2021-02-01T12:42:28.0305553Z success source and transform nodes - 0.061s
+2021-02-01T12:42:28.3661594Z success building schema - 0.335s
+2021-02-01T12:42:28.3681556Z success createPages - 0.000s
+2021-02-01T12:42:28.4437364Z success createPagesStatefully - 0.075s
+2021-02-01T12:42:28.4445075Z success onPreExtractQueries - 0.000s
+2021-02-01T12:42:28.4710425Z success update schema - 0.026s
+2021-02-01T12:42:28.8022091Z success extract queries from components - 0.330s
+2021-02-01T12:42:28.8077011Z success write out requires - 0.004s
+2021-02-01T12:42:28.8087987Z success write out redirect data - 0.001s
+2021-02-01T12:42:29.1135584Z success Build manifest and related icons - 0.303s
+2021-02-01T12:42:29.1142410Z success onPostBootstrap - 0.304s
+2021-02-01T12:42:29.1143312Z â €
+2021-02-01T12:42:29.1148062Z info bootstrap finished - 6.611s
+2021-02-01T12:42:29.1148907Z â €
+2021-02-01T12:42:29.1749878Z success run static queries - 0.055s - 3/3 54.47/s
+2021-02-01T12:42:29.7222128Z warning Browserslist: caniuse-lite is outdated. Please run:
+2021-02-01T12:42:29.7223478Z npx browserslist@latest --update-db
+2021-02-01T12:42:39.0300565Z success Building production JavaScript and CSS bundles - 9.855s
+2021-02-01T12:42:39.0977582Z success Rewriting compilation hashes - 0.001s
+2021-02-01T12:42:39.1247391Z success run page queries - 0.025s - 4/4 158.16/s
+2021-02-01T12:42:40.7035281Z success Building static HTML for pages - 1.525s - 4/4 2.62/s
+2021-02-01T12:42:40.7070898Z success Generating image thumbnails - 11.557s - 4/4 0.35/s
+2021-02-01T12:42:40.7072003Z success onPostBuild - 0.001s
+2021-02-01T12:42:40.7150565Z info Done building in 18.212 sec
+2021-02-01T12:42:42.6055170Z ##[section]Finishing: gatsby build
+2021-02-01T12:42:42.6083819Z ##[section]Starting: copy Super Specials site
+2021-02-01T12:42:42.6092137Z ==============================================================================
+2021-02-01T12:42:42.6093046Z Task         : Copy files
+2021-02-01T12:42:42.6093680Z Description  : Copy files from a source folder to a target folder using patterns matching file paths (not folder paths)
+2021-02-01T12:42:42.6094311Z Version      : 2.180.1
+2021-02-01T12:42:42.6094905Z Author       : Microsoft Corporation
+2021-02-01T12:42:42.6095642Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/copy-files
+2021-02-01T12:42:42.6096366Z ==============================================================================
+2021-02-01T12:42:43.0099010Z found 45 files
+2021-02-01T12:42:43.0099939Z Cleaning target folder: /__w/1/a
+2021-02-01T12:42:43.0110487Z Copying /__w/1/s/public/404/index.html to /__w/1/a/404/index.html
+2021-02-01T12:42:43.0133512Z Copying /__w/1/s/public/404.html to /__w/1/a/404.html
+2021-02-01T12:42:43.0137482Z Copying /__w/1/s/public/app-a77e7cb1e4ebf97aa49c.js to /__w/1/a/app-a77e7cb1e4ebf97aa49c.js
+2021-02-01T12:42:43.0139104Z Copying /__w/1/s/public/app-a77e7cb1e4ebf97aa49c.js.map to /__w/1/a/app-a77e7cb1e4ebf97aa49c.js.map
+2021-02-01T12:42:43.0148109Z Copying /__w/1/s/public/chunk-map.json to /__w/1/a/chunk-map.json
+2021-02-01T12:42:43.0149527Z Copying /__w/1/s/public/component---src-pages-404-js-ea5fbc3039957ef13d1b.js to /__w/1/a/component---src-pages-404-js-ea5fbc3039957ef13d1b.js
+2021-02-01T12:42:43.0161284Z Copying /__w/1/s/public/component---src-pages-404-js-ea5fbc3039957ef13d1b.js.map to /__w/1/a/component---src-pages-404-js-ea5fbc3039957ef13d1b.js.map
+2021-02-01T12:42:43.0169441Z Copying /__w/1/s/public/component---src-pages-index-js-b46ab7e3e40be6df62bc.js to /__w/1/a/component---src-pages-index-js-b46ab7e3e40be6df62bc.js
+2021-02-01T12:42:43.0170937Z Copying /__w/1/s/public/component---src-pages-index-js-b46ab7e3e40be6df62bc.js.map to /__w/1/a/component---src-pages-index-js-b46ab7e3e40be6df62bc.js.map
+2021-02-01T12:42:43.0177910Z Copying /__w/1/s/public/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js to /__w/1/a/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js
+2021-02-01T12:42:43.0183486Z Copying /__w/1/s/public/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js.map to /__w/1/a/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js.map
+2021-02-01T12:42:43.0188521Z Copying /__w/1/s/public/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js to /__w/1/a/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js
+2021-02-01T12:42:43.0208616Z Copying /__w/1/s/public/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js.map to /__w/1/a/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js.map
+2021-02-01T12:42:43.0212605Z Copying /__w/1/s/public/favicon-32x32.png to /__w/1/a/favicon-32x32.png
+2021-02-01T12:42:43.0213691Z Copying /__w/1/s/public/framework-81e6052b3504df28bf0b.js to /__w/1/a/framework-81e6052b3504df28bf0b.js
+2021-02-01T12:42:43.0214788Z Copying /__w/1/s/public/framework-81e6052b3504df28bf0b.js.map to /__w/1/a/framework-81e6052b3504df28bf0b.js.map
+2021-02-01T12:42:43.0229154Z Copying /__w/1/s/public/icons/icon-144x144.png to /__w/1/a/icons/icon-144x144.png
+2021-02-01T12:42:43.0230264Z Copying /__w/1/s/public/icons/icon-192x192.png to /__w/1/a/icons/icon-192x192.png
+2021-02-01T12:42:43.0252862Z Copying /__w/1/s/public/icons/icon-256x256.png to /__w/1/a/icons/icon-256x256.png
+2021-02-01T12:42:43.0254039Z Copying /__w/1/s/public/icons/icon-384x384.png to /__w/1/a/icons/icon-384x384.png
+2021-02-01T12:42:43.0255159Z Copying /__w/1/s/public/icons/icon-48x48.png to /__w/1/a/icons/icon-48x48.png
+2021-02-01T12:42:43.0256254Z Copying /__w/1/s/public/icons/icon-512x512.png to /__w/1/a/icons/icon-512x512.png
+2021-02-01T12:42:43.0259724Z Copying /__w/1/s/public/icons/icon-72x72.png to /__w/1/a/icons/icon-72x72.png
+2021-02-01T12:42:43.0273320Z Copying /__w/1/s/public/icons/icon-96x96.png to /__w/1/a/icons/icon-96x96.png
+2021-02-01T12:42:43.0274571Z Copying /__w/1/s/public/index.html to /__w/1/a/index.html
+2021-02-01T12:42:43.0281733Z Copying /__w/1/s/public/manifest.webmanifest to /__w/1/a/manifest.webmanifest
+2021-02-01T12:42:43.0291254Z Copying /__w/1/s/public/page-data/404/page-data.json to /__w/1/a/page-data/404/page-data.json
+2021-02-01T12:42:43.0293573Z Copying /__w/1/s/public/page-data/404.html/page-data.json to /__w/1/a/page-data/404.html/page-data.json
+2021-02-01T12:42:43.0295065Z Copying /__w/1/s/public/page-data/app-data.json to /__w/1/a/page-data/app-data.json
+2021-02-01T12:42:43.0341175Z Copying /__w/1/s/public/page-data/index/page-data.json to /__w/1/a/page-data/index/page-data.json
+2021-02-01T12:42:43.0348281Z Copying /__w/1/s/public/page-data/using-typescript/page-data.json to /__w/1/a/page-data/using-typescript/page-data.json
+2021-02-01T12:42:43.0377979Z Copying /__w/1/s/public/static/a097e396e4697281c0052fe04bcd1413/25b50/super-specials.jpg to /__w/1/a/static/a097e396e4697281c0052fe04bcd1413/25b50/super-specials.jpg
+2021-02-01T12:42:43.0385234Z Copying /__w/1/s/public/static/a097e396e4697281c0052fe04bcd1413/9dc27/super-specials.jpg to /__w/1/a/static/a097e396e4697281c0052fe04bcd1413/9dc27/super-specials.jpg
+2021-02-01T12:42:43.0408841Z Copying /__w/1/s/public/static/a097e396e4697281c0052fe04bcd1413/aabdf/super-specials.jpg to /__w/1/a/static/a097e396e4697281c0052fe04bcd1413/aabdf/super-specials.jpg
+2021-02-01T12:42:43.0411838Z Copying /__w/1/s/public/static/a097e396e4697281c0052fe04bcd1413/e2788/super-specials.jpg to /__w/1/a/static/a097e396e4697281c0052fe04bcd1413/e2788/super-specials.jpg
+2021-02-01T12:42:43.0413898Z Copying /__w/1/s/public/static/d/2661993994.json to /__w/1/a/static/d/2661993994.json
+2021-02-01T12:42:43.0414623Z Copying /__w/1/s/public/static/d/3649515864.json to /__w/1/a/static/d/3649515864.json
+2021-02-01T12:42:43.0422780Z Copying /__w/1/s/public/static/d/63159454.json to /__w/1/a/static/d/63159454.json
+2021-02-01T12:42:43.0424010Z Copying /__w/1/s/public/styles-9b6f388623a2ec93d35f.js to /__w/1/a/styles-9b6f388623a2ec93d35f.js
+2021-02-01T12:42:43.0425062Z Copying /__w/1/s/public/styles-9b6f388623a2ec93d35f.js.map to /__w/1/a/styles-9b6f388623a2ec93d35f.js.map
+2021-02-01T12:42:43.0426017Z Copying /__w/1/s/public/styles.d5ef0abb16ee382cea7f.css to /__w/1/a/styles.d5ef0abb16ee382cea7f.css
+2021-02-01T12:42:43.0428196Z Copying /__w/1/s/public/using-typescript/index.html to /__w/1/a/using-typescript/index.html
+2021-02-01T12:42:43.0429410Z Copying /__w/1/s/public/webpack-runtime-88372e1f4325e8dd2547.js to /__w/1/a/webpack-runtime-88372e1f4325e8dd2547.js
+2021-02-01T12:42:43.0430501Z Copying /__w/1/s/public/webpack-runtime-88372e1f4325e8dd2547.js.map to /__w/1/a/webpack-runtime-88372e1f4325e8dd2547.js.map
+2021-02-01T12:42:43.0431241Z Copying /__w/1/s/public/webpack.stats.json to /__w/1/a/webpack.stats.json
+2021-02-01T12:42:43.0867369Z ##[section]Finishing: copy Super Specials site
+2021-02-01T12:42:43.0893899Z ##[section]Starting: PublishBuildArtifacts
+2021-02-01T12:42:43.0901621Z ==============================================================================
+2021-02-01T12:42:43.0902272Z Task         : Publish build artifacts
+2021-02-01T12:42:43.0902782Z Description  : Publish build artifacts to Azure Pipelines or a Windows file share
+2021-02-01T12:42:43.0903250Z Version      : 1.158.3
+2021-02-01T12:42:43.0903638Z Author       : Microsoft Corporation
+2021-02-01T12:42:43.0904150Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/publish-build-artifacts
+2021-02-01T12:42:43.0904727Z ==============================================================================
+2021-02-01T12:42:43.5576740Z ##[section]Async Command Start: Upload Artifact
+2021-02-01T12:42:43.5577693Z Uploading 45 files
+2021-02-01T12:42:45.8425850Z File upload succeed.
+2021-02-01T12:42:45.8426651Z Upload '/home/vsts/work/1/a' to file container: '#/9937382/super'
+2021-02-01T12:42:45.8427216Z Associated artifact 7 with build 7
+2021-02-01T12:42:45.8427688Z ##[section]Async Command End: Upload Artifact
+2021-02-01T12:42:45.8429412Z ##[section]Finishing: PublishBuildArtifacts
+2021-02-01T12:42:45.8457157Z ##[section]Starting: DownloadBuildArtifacts
+2021-02-01T12:42:45.8465780Z ==============================================================================
+2021-02-01T12:42:45.8466745Z Task         : Download build artifacts
+2021-02-01T12:42:45.8467267Z Description  : Download files that were saved as artifacts of a completed build
+2021-02-01T12:42:45.8467724Z Version      : 0.178.0
+2021-02-01T12:42:45.8468095Z Author       : Microsoft Corporation
+2021-02-01T12:42:45.8468789Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/download-build-artifacts
+2021-02-01T12:42:45.8469506Z ==============================================================================
+2021-02-01T12:42:46.6840827Z Downloading artifacts for build: 7
+2021-02-01T12:42:46.7839307Z Downloading items from container resource #/9937382/super
+2021-02-01T12:42:46.7841171Z Downloading artifact super from: https://dev.azure.com/wayne0560//_apis/resources/Containers/9937382?itemPath=super&isShallow=true&api-version=4.1-preview.4
+2021-02-01T12:42:46.9651155Z Downloading super/404.html to super/404.html
+2021-02-01T12:42:46.9690668Z Downloaded super/404.html to super/404.html
+2021-02-01T12:42:47.0576255Z Downloading super/app-a77e7cb1e4ebf97aa49c.js.map to super/app-a77e7cb1e4ebf97aa49c.js.map
+2021-02-01T12:42:47.0891781Z Downloaded super/app-a77e7cb1e4ebf97aa49c.js.map to super/app-a77e7cb1e4ebf97aa49c.js.map
+2021-02-01T12:42:47.1331114Z Downloading super/app-a77e7cb1e4ebf97aa49c.js to super/app-a77e7cb1e4ebf97aa49c.js
+2021-02-01T12:42:47.1360885Z Downloaded super/app-a77e7cb1e4ebf97aa49c.js to super/app-a77e7cb1e4ebf97aa49c.js
+2021-02-01T12:42:47.1836428Z Downloading super/chunk-map.json to super/chunk-map.json
+2021-02-01T12:42:47.1838040Z Downloaded super/chunk-map.json to super/chunk-map.json
+2021-02-01T12:42:47.2284782Z Downloading super/component---src-pages-404-js-ea5fbc3039957ef13d1b.js.map to super/component---src-pages-404-js-ea5fbc3039957ef13d1b.js.map
+2021-02-01T12:42:47.2303416Z Downloaded super/component---src-pages-404-js-ea5fbc3039957ef13d1b.js.map to super/component---src-pages-404-js-ea5fbc3039957ef13d1b.js.map
+2021-02-01T12:42:47.2728189Z Downloading super/component---src-pages-404-js-ea5fbc3039957ef13d1b.js to super/component---src-pages-404-js-ea5fbc3039957ef13d1b.js
+2021-02-01T12:42:47.2729684Z Downloaded super/component---src-pages-404-js-ea5fbc3039957ef13d1b.js to super/component---src-pages-404-js-ea5fbc3039957ef13d1b.js
+2021-02-01T12:42:47.3136083Z Downloading super/component---src-pages-index-js-b46ab7e3e40be6df62bc.js.map to super/component---src-pages-index-js-b46ab7e3e40be6df62bc.js.map
+2021-02-01T12:42:47.3266898Z Downloaded super/component---src-pages-index-js-b46ab7e3e40be6df62bc.js.map to super/component---src-pages-index-js-b46ab7e3e40be6df62bc.js.map
+2021-02-01T12:42:47.3698734Z Downloading super/component---src-pages-index-js-b46ab7e3e40be6df62bc.js to super/component---src-pages-index-js-b46ab7e3e40be6df62bc.js
+2021-02-01T12:42:47.3731853Z Downloaded super/component---src-pages-index-js-b46ab7e3e40be6df62bc.js to super/component---src-pages-index-js-b46ab7e3e40be6df62bc.js
+2021-02-01T12:42:47.4146053Z Downloading super/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js.map to super/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js.map
+2021-02-01T12:42:47.4162419Z Downloaded super/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js.map to super/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js.map
+2021-02-01T12:42:47.4584746Z Downloading super/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js to super/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js
+2021-02-01T12:42:47.4604954Z Downloaded super/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js to super/component---src-pages-using-typescript-tsx-bb02e7db028ebe189d07.js
+2021-02-01T12:42:47.5069759Z Downloading super/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js.map to super/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js.map
+2021-02-01T12:42:47.5094853Z Downloaded super/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js.map to super/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js.map
+2021-02-01T12:42:47.5506548Z Downloading super/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js to super/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js
+2021-02-01T12:42:47.5538881Z Downloaded super/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js to super/fa6404d652d08cc3132e15f16a52924a7eded953-e09695e94c6a8b48f619.js
+2021-02-01T12:42:47.5990742Z Downloading super/favicon-32x32.png to super/favicon-32x32.png
+2021-02-01T12:42:47.5992043Z Downloaded super/favicon-32x32.png to super/favicon-32x32.png
+2021-02-01T12:42:47.6515453Z Downloading super/framework-81e6052b3504df28bf0b.js.map to super/framework-81e6052b3504df28bf0b.js.map
+2021-02-01T12:42:47.6673069Z Downloaded super/framework-81e6052b3504df28bf0b.js.map to super/framework-81e6052b3504df28bf0b.js.map
+2021-02-01T12:42:47.7093664Z Downloading super/framework-81e6052b3504df28bf0b.js to super/framework-81e6052b3504df28bf0b.js
+2021-02-01T12:42:47.7120456Z Downloaded super/framework-81e6052b3504df28bf0b.js to super/framework-81e6052b3504df28bf0b.js
+2021-02-01T12:42:47.8056517Z Downloading super/index.html to super/index.html
+2021-02-01T12:42:47.8068917Z Downloaded super/index.html to super/index.html
+2021-02-01T12:42:47.8470875Z Downloading super/webpack-runtime-88372e1f4325e8dd2547.js.map to super/webpack-runtime-88372e1f4325e8dd2547.js.map
+2021-02-01T12:42:47.8481748Z Downloaded super/webpack-runtime-88372e1f4325e8dd2547.js.map to super/webpack-runtime-88372e1f4325e8dd2547.js.map
+2021-02-01T12:42:47.8796579Z Downloading super/manifest.webmanifest to super/manifest.webmanifest
+2021-02-01T12:42:47.8806442Z Downloading super/styles.d5ef0abb16ee382cea7f.css to super/styles.d5ef0abb16ee382cea7f.css
+2021-02-01T12:42:47.8825545Z Downloaded super/manifest.webmanifest to super/manifest.webmanifest
+2021-02-01T12:42:47.8853126Z Downloaded super/styles.d5ef0abb16ee382cea7f.css to super/styles.d5ef0abb16ee382cea7f.css
+2021-02-01T12:42:47.9067736Z Downloading super/webpack-runtime-88372e1f4325e8dd2547.js to super/webpack-runtime-88372e1f4325e8dd2547.js
+2021-02-01T12:42:47.9093920Z Downloading super/styles-9b6f388623a2ec93d35f.js.map to super/styles-9b6f388623a2ec93d35f.js.map
+2021-02-01T12:42:47.9100810Z Downloaded super/styles-9b6f388623a2ec93d35f.js.map to super/styles-9b6f388623a2ec93d35f.js.map
+2021-02-01T12:42:47.9114834Z Downloaded super/webpack-runtime-88372e1f4325e8dd2547.js to super/webpack-runtime-88372e1f4325e8dd2547.js
+2021-02-01T12:42:47.9179936Z Downloading super/404/index.html to super/404/index.html
+2021-02-01T12:42:47.9191021Z Downloading super/styles-9b6f388623a2ec93d35f.js to super/styles-9b6f388623a2ec93d35f.js
+2021-02-01T12:42:47.9193578Z Downloaded super/styles-9b6f388623a2ec93d35f.js to super/styles-9b6f388623a2ec93d35f.js
+2021-02-01T12:42:47.9217342Z Downloaded super/404/index.html to super/404/index.html
+2021-02-01T12:42:47.9254110Z Downloading super/icons/icon-192x192.png to super/icons/icon-192x192.png
+2021-02-01T12:42:47.9285997Z Downloaded super/icons/icon-192x192.png to super/icons/icon-192x192.png
+2021-02-01T12:42:47.9344681Z Downloading super/icons/icon-144x144.png to super/icons/icon-144x144.png
+2021-02-01T12:42:47.9385571Z Downloaded super/icons/icon-144x144.png to super/icons/icon-144x144.png
+2021-02-01T12:42:47.9533460Z Downloading super/icons/icon-256x256.png to super/icons/icon-256x256.png
+2021-02-01T12:42:47.9560428Z Downloading super/icons/icon-384x384.png to super/icons/icon-384x384.png
+2021-02-01T12:42:47.9630268Z Downloaded super/icons/icon-256x256.png to super/icons/icon-256x256.png
+2021-02-01T12:42:47.9644941Z Downloading super/icons/icon-72x72.png to super/icons/icon-72x72.png
+2021-02-01T12:42:47.9648694Z Downloaded super/icons/icon-72x72.png to super/icons/icon-72x72.png
+2021-02-01T12:42:47.9761843Z Downloading super/icons/icon-96x96.png to super/icons/icon-96x96.png
+2021-02-01T12:42:47.9769096Z Downloaded super/icons/icon-96x96.png to super/icons/icon-96x96.png
+2021-02-01T12:42:47.9795379Z Downloaded super/icons/icon-384x384.png to super/icons/icon-384x384.png
+2021-02-01T12:42:47.9961778Z Downloading super/icons/icon-512x512.png to super/icons/icon-512x512.png
+2021-02-01T12:42:47.9972249Z Downloading super/webpack.stats.json to super/webpack.stats.json
+2021-02-01T12:42:47.9980940Z Downloaded super/webpack.stats.json to super/webpack.stats.json
+2021-02-01T12:42:48.0001529Z Downloading super/icons/icon-48x48.png to super/icons/icon-48x48.png
+2021-02-01T12:42:48.0003025Z Downloaded super/icons/icon-48x48.png to super/icons/icon-48x48.png
+2021-02-01T12:42:48.0162476Z Downloading super/page-data/app-data.json to super/page-data/app-data.json
+2021-02-01T12:42:48.0164058Z Downloaded super/page-data/app-data.json to super/page-data/app-data.json
+2021-02-01T12:42:48.0459235Z Downloading super/page-data/404.html/page-data.json to super/page-data/404.html/page-data.json
+2021-02-01T12:42:48.0460904Z Downloaded super/page-data/404.html/page-data.json to super/page-data/404.html/page-data.json
+2021-02-01T12:42:48.0583998Z Downloading super/page-data/index/page-data.json to super/page-data/index/page-data.json
+2021-02-01T12:42:48.0585581Z Downloaded super/page-data/index/page-data.json to super/page-data/index/page-data.json
+2021-02-01T12:42:48.0650106Z Downloading super/page-data/404/page-data.json to super/page-data/404/page-data.json
+2021-02-01T12:42:48.0651389Z Downloaded super/page-data/404/page-data.json to super/page-data/404/page-data.json
+2021-02-01T12:42:48.0696409Z Downloaded super/icons/icon-512x512.png to super/icons/icon-512x512.png
+2021-02-01T12:42:48.0715750Z Downloading super/using-typescript/index.html to super/using-typescript/index.html
+2021-02-01T12:42:48.0726507Z Downloaded super/using-typescript/index.html to super/using-typescript/index.html
+2021-02-01T12:42:48.0834084Z Downloading super/page-data/using-typescript/page-data.json to super/page-data/using-typescript/page-data.json
+2021-02-01T12:42:48.0845384Z Downloaded super/page-data/using-typescript/page-data.json to super/page-data/using-typescript/page-data.json
+2021-02-01T12:42:48.1066389Z Downloading super/static/d/2661993994.json to super/static/d/2661993994.json
+2021-02-01T12:42:48.1072117Z Downloaded super/static/d/2661993994.json to super/static/d/2661993994.json
+2021-02-01T12:42:48.1162290Z Downloading super/static/a097e396e4697281c0052fe04bcd1413/25b50/super-specials.jpg to super/static/a097e396e4697281c0052fe04bcd1413/25b50/super-specials.jpg
+2021-02-01T12:42:48.1171477Z Downloading super/static/d/3649515864.json to super/static/d/3649515864.json
+2021-02-01T12:42:48.1181956Z Downloaded super/static/d/3649515864.json to super/static/d/3649515864.json
+2021-02-01T12:42:48.1183733Z Downloaded super/static/a097e396e4697281c0052fe04bcd1413/25b50/super-specials.jpg to super/static/a097e396e4697281c0052fe04bcd1413/25b50/super-specials.jpg
+2021-02-01T12:42:48.1236460Z Downloading super/static/a097e396e4697281c0052fe04bcd1413/9dc27/super-specials.jpg to super/static/a097e396e4697281c0052fe04bcd1413/9dc27/super-specials.jpg
+2021-02-01T12:42:48.1250264Z Downloaded super/static/a097e396e4697281c0052fe04bcd1413/9dc27/super-specials.jpg to super/static/a097e396e4697281c0052fe04bcd1413/9dc27/super-specials.jpg
+2021-02-01T12:42:48.1289229Z Downloading super/static/d/63159454.json to super/static/d/63159454.json
+2021-02-01T12:42:48.1305668Z Downloading super/static/a097e396e4697281c0052fe04bcd1413/aabdf/super-specials.jpg to super/static/a097e396e4697281c0052fe04bcd1413/aabdf/super-specials.jpg
+2021-02-01T12:42:48.1313156Z Downloaded super/static/d/63159454.json to super/static/d/63159454.json
+2021-02-01T12:42:48.1319000Z Downloaded super/static/a097e396e4697281c0052fe04bcd1413/aabdf/super-specials.jpg to super/static/a097e396e4697281c0052fe04bcd1413/aabdf/super-specials.jpg
+2021-02-01T12:42:48.1369267Z Downloading super/static/a097e396e4697281c0052fe04bcd1413/e2788/super-specials.jpg to super/static/a097e396e4697281c0052fe04bcd1413/e2788/super-specials.jpg
+2021-02-01T12:42:48.1386110Z Downloaded super/static/a097e396e4697281c0052fe04bcd1413/e2788/super-specials.jpg to super/static/a097e396e4697281c0052fe04bcd1413/e2788/super-specials.jpg
+2021-02-01T12:42:49.1333038Z Total Files: 45, Processed: 45, Skipped: 0, Failed: 0, Download time: 2.348 secs, Download size: 1.197MB
+2021-02-01T12:42:49.1840020Z Successfully downloaded artifacts to .
+2021-02-01T12:42:49.1960303Z ##[section]Finishing: DownloadBuildArtifacts
+2021-02-01T12:42:49.2015904Z ##[section]Starting: Display contents
+2021-02-01T12:42:49.2023791Z ==============================================================================
+2021-02-01T12:42:49.2024390Z Task         : Command line
+2021-02-01T12:42:49.2024926Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2021-02-01T12:42:49.2025413Z Version      : 2.178.0
+2021-02-01T12:42:49.2025972Z Author       : Microsoft Corporation
+2021-02-01T12:42:49.2026467Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2021-02-01T12:42:49.2027001Z ==============================================================================
+2021-02-01T12:42:49.5718336Z Generating script.
+2021-02-01T12:42:49.5741167Z Script contents:
+2021-02-01T12:42:49.5742005Z ls -la
+2021-02-01T12:42:49.5742723Z ========================== Starting Command Output ===========================
+2021-02-01T12:42:49.5773678Z [command]/bin/bash --noprofile --norc /__w/_temp/3b28a849-fb59-48b4-9706-a702521849c1.sh
+2021-02-01T12:42:49.5859785Z total 960
+2021-02-01T12:42:49.5860974Z drwxr-xr-x    9 vsts_azpcontainer azure_pipelines_docker   4096 Feb  1 12:42 .
+2021-02-01T12:42:49.5862781Z drwxr-xr-x    6 vsts_azpcontainer azure_pipelines_docker   4096 Feb  1 12:40 ..
+2021-02-01T12:42:49.5863793Z drwxr-xr-x    8 vsts_azpcontainer vsts_azpcontainer        4096 Feb  1 12:42 .cache
+2021-02-01T12:42:49.5865199Z drwxr-xr-x    8 vsts_azpcontainer azure_pipelines_docker   4096 Feb  1 12:40 .git
+2021-02-01T12:42:49.5866198Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker    974 Feb  1 12:40 .gitignore
+2021-02-01T12:42:49.5867228Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker     45 Feb  1 12:40 .prettierignore
+2021-02-01T12:42:49.5868234Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker     46 Feb  1 12:40 .prettierrc
+2021-02-01T12:42:49.5869516Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker   1076 Feb  1 12:40 LICENSE
+2021-02-01T12:42:49.5870426Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker    705 Feb  1 12:40 README.md
+2021-02-01T12:42:49.5871396Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker   2827 Feb  1 12:40 azure-pipelines.yml
+2021-02-01T12:42:49.5872711Z drwxr-xr-x    4 vsts_azpcontainer azure_pipelines_docker   4096 Feb  1 12:40 deploy
+2021-02-01T12:42:49.5873721Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker    164 Feb  1 12:40 gatsby-browser.js
+2021-02-01T12:42:49.5875305Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker    950 Feb  1 12:40 gatsby-config.js
+2021-02-01T12:42:49.5876479Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker    158 Feb  1 12:40 gatsby-node.js
+2021-02-01T12:42:49.5877437Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker    180 Feb  1 12:40 gatsby-ssr.js
+2021-02-01T12:42:49.5878383Z drwxr-xr-x 1401 vsts_azpcontainer vsts_azpcontainer       49152 Feb  1 12:42 node_modules
+2021-02-01T12:42:49.5879572Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker 851588 Feb  1 12:40 package-lock.json
+2021-02-01T12:42:49.5880537Z -rw-r--r--    1 vsts_azpcontainer azure_pipelines_docker   1251 Feb  1 12:40 package.json
+2021-02-01T12:42:49.5881497Z drwxr-xr-x    7 vsts_azpcontainer vsts_azpcontainer        4096 Feb  1 12:42 public
+2021-02-01T12:42:49.5882442Z drwxr-xr-x    5 vsts_azpcontainer azure_pipelines_docker   4096 Feb  1 12:40 src
+2021-02-01T12:42:49.5883378Z drwxr-xr-x    7 vsts_azpcontainer vsts_azpcontainer        4096 Feb  1 12:42 super
+2021-02-01T12:42:49.6388911Z ##[section]Finishing: Display contents
+2021-02-01T12:42:49.6416170Z ##[section]Starting: Enable AZ  Login
+2021-02-01T12:42:49.6422377Z ==============================================================================
+2021-02-01T12:42:49.6423677Z Task         : Command line
+2021-02-01T12:42:49.6424323Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2021-02-01T12:42:49.6424959Z Version      : 2.178.0
+2021-02-01T12:42:49.6425309Z Author       : Microsoft Corporation
+2021-02-01T12:42:49.6425789Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2021-02-01T12:42:49.6426489Z ==============================================================================
+2021-02-01T12:42:50.0296063Z Generating script.
+2021-02-01T12:42:50.0309560Z Script contents:
+2021-02-01T12:42:50.0312895Z az login --service-principal -u 56011a2b-c284-4e07-8c64-064126ec4f89 -p fG3qqdZnzdbNfP0zHfe4gDgG-EovSErv4P --tenant 31960183-625f-45db-b155-f970ab92512b
+2021-02-01T12:42:50.0314446Z ========================== Starting Command Output ===========================
+2021-02-01T12:42:50.0343929Z [command]/bin/bash --noprofile --norc /__w/_temp/53fe8d92-f37b-4615-86cd-fc7bc98d52a8.sh
+2021-02-01T12:42:51.5689384Z [
+2021-02-01T12:42:51.5690429Z   {
+2021-02-01T12:42:51.5690942Z     "cloudName": "AzureCloud",
+2021-02-01T12:42:51.5692209Z     "homeTenantId": "31960183-625f-45db-b155-f970ab92512b",
+2021-02-01T12:42:51.5693153Z     "id": "3e737e66-296c-4273-b8d6-fc98e7feb984",
+2021-02-01T12:42:51.5693761Z     "isDefault": true,
+2021-02-01T12:42:51.5694413Z     "managedByTenants": [],
+2021-02-01T12:42:51.5694926Z     "name": "Free Trial",
+2021-02-01T12:42:51.5695931Z     "state": "Enabled",
+2021-02-01T12:42:51.5696752Z     "tenantId": "31960183-625f-45db-b155-f970ab92512b",
+2021-02-01T12:42:51.5697367Z     "user": {
+2021-02-01T12:42:51.5698180Z       "name": "56011a2b-c284-4e07-8c64-064126ec4f89",
+2021-02-01T12:42:51.5698805Z       "type": "servicePrincipal"
+2021-02-01T12:42:51.5699449Z     }
+2021-02-01T12:42:51.5699891Z   }
+2021-02-01T12:42:51.5700291Z ]
+2021-02-01T12:42:51.7395405Z ##[section]Finishing: Enable AZ  Login
+2021-02-01T12:42:51.7420623Z ##[section]Starting: clean content
+2021-02-01T12:42:51.7427860Z ==============================================================================
+2021-02-01T12:42:51.7428359Z Task         : Command line
+2021-02-01T12:42:51.7428769Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2021-02-01T12:42:51.7429153Z Version      : 2.178.0
+2021-02-01T12:42:51.7429455Z Author       : Microsoft Corporation
+2021-02-01T12:42:51.7429847Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2021-02-01T12:42:51.7430305Z ==============================================================================
+2021-02-01T12:42:52.1299345Z Generating script.
+2021-02-01T12:42:52.1316418Z Script contents:
+2021-02-01T12:42:52.1317386Z az storage blob delete-batch -s \$web --account-name superspecials
+2021-02-01T12:42:52.1318230Z ========================== Starting Command Output ===========================
+2021-02-01T12:42:52.1360471Z [command]/bin/bash --noprofile --norc /__w/_temp/a7e6a0e6-cbe8-4835-a948-0dc9b606e478.sh
+2021-02-01T12:42:53.1985427Z No connection string, account key or sas token found, we will query account keys for your storage account. Please try to use --auth-mode login or provide one of the following parameters: connection string, account key or sas token for your storage account.
+2021-02-01T12:42:54.0895761Z usage: az storage blob delete-batch [-h] [--verbose] [--debug]
+2021-02-01T12:42:54.0897019Z                                     [--only-show-errors]
+2021-02-01T12:42:54.0898251Z                                     [--output {json,jsonc,yaml,yamlc,table,tsv,none}]
+2021-02-01T12:42:54.0899284Z                                     [--query JMESPATH]
+2021-02-01T12:42:54.0900252Z                                     [--account-name ACCOUNT_NAME]
+2021-02-01T12:42:54.0901264Z                                     [--account-key ACCOUNT_KEY]
+2021-02-01T12:42:54.0902516Z                                     [--connection-string CONNECTION_STRING]
+2021-02-01T12:42:54.0903866Z                                     [--sas-token SAS_TOKEN]
+2021-02-01T12:42:54.0904914Z                                     [--subscription _SUBSCRIPTION] --source
+2021-02-01T12:42:54.0906089Z                                     SOURCE [--pattern PATTERN]
+2021-02-01T12:42:54.0907046Z                                     [--lease-id LEASE_ID]
+2021-02-01T12:42:54.0908039Z                                     [--delete-snapshots {include,only}]
+2021-02-01T12:42:54.0909059Z                                     [--if-modified-since IF_MODIFIED_SINCE]
+2021-02-01T12:42:54.0910073Z                                     [--if-unmodified-since IF_UNMODIFIED_SINCE]
+2021-02-01T12:42:54.0911059Z                                     [--if-match IF_MATCH]
+2021-02-01T12:42:54.0912030Z                                     [--if-none-match IF_NONE_MATCH]
+2021-02-01T12:42:54.0913020Z                                     [--timeout TIMEOUT] [--dryrun]
+2021-02-01T12:42:54.0914017Z                                     [--auth-mode {login,key}]
+2021-02-01T12:42:54.0915263Z az storage blob delete-batch: error: Storage account 'superspecials' not found.
+2021-02-01T12:42:54.2082062Z ##[error]Bash exited with code '2'.
+2021-02-01T12:42:54.2505365Z ##[section]Finishing: clean content
+2021-02-01T12:42:54.2553722Z ##[section]Starting: Checkout wayneconnolly/superspecials@master to s
+2021-02-01T12:42:54.2562681Z ==============================================================================
+2021-02-01T12:42:54.2564406Z Task         : Get sources
+2021-02-01T12:42:54.2564952Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2021-02-01T12:42:54.2565469Z Version      : 1.0.0
+2021-02-01T12:42:54.2565829Z Author       : Microsoft
+2021-02-01T12:42:54.2566478Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2021-02-01T12:42:54.2567380Z ==============================================================================
+2021-02-01T12:42:54.6551072Z Cleaning any cached credential from repository: wayneconnolly/superspecials (GitHub)
+2021-02-01T12:42:54.6606742Z ##[section]Finishing: Checkout wayneconnolly/superspecials@master to s
+2021-02-01T12:42:54.6629639Z ##[section]Starting: Stop Containers
+2021-02-01T12:42:54.6661455Z Stop and remove container: terraform_container_lenishaterraformlight_00230a
+2021-02-01T12:42:54.6668780Z ##[command]/usr/bin/docker rm --force c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad
+2021-02-01T12:42:56.3556233Z c4082ca9ca91708d047d2d7bbc9e1a72580f286dafacaf9cac30232a4066cdad
+2021-02-01T12:42:56.3587000Z Remove container network: vsts_network_28f675b36b774ecea179cbbdf179e8be
+2021-02-01T12:42:56.3594595Z ##[command]/usr/bin/docker network rm vsts_network_28f675b36b774ecea179cbbdf179e8be
+2021-02-01T12:42:56.6067673Z vsts_network_28f675b36b774ecea179cbbdf179e8be
+2021-02-01T12:42:56.6110236Z ##[section]Finishing: Stop Containers
+2021-02-01T12:42:56.6177130Z ##[section]Starting: Finalize Job
+2021-02-01T12:42:56.6214709Z TestResultLogParser: JasmineTestResultParser : Starting jasmine test result parser.
+2021-02-01T12:42:56.6215298Z TestResultLogParser: JestTestResultParser : Starting jest test result parser.
+2021-02-01T12:42:56.6215710Z TestResultLogParser: MochaTestResultParser : Starting mocha test result parser.
+2021-02-01T12:42:56.6216113Z TestResultLogParser: PythonTestResultParser : Starting python test result parser.
+2021-02-01T12:42:57.1771357Z Cleaning up task key
+2021-02-01T12:42:57.1773350Z Start cleaning up orphan processes.
+2021-02-01T12:42:57.2232047Z ##[section]Finishing: Finalize Job
+2021-02-01T12:42:57.2285376Z ##[section]Finishing: Job
