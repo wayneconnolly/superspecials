@@ -78,6 +78,7 @@ steps:
 - script: |
     cd deploy/terraform
     terraform init -backend-config=backend.tfvars
+    az storage blob lease break -b gatsby-starter-default.terraform.tfstate -c superspecials --account-name "vstsbuildterraform" --account-key $(ARM_ACCESS_KEY)
     terraform apply -auto-approve -var dns_name=$(BLOB_NAME)
   displayName: 'Terraform init and apply'
   env:
