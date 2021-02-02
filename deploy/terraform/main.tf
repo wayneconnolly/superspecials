@@ -44,13 +44,13 @@ resource "azurerm_cdn_endpoint" "webblob-cdn-endpt" {
   resource_group_name = "${azurerm_resource_group.demo-rg.name}"
   is_http_allowed 	  = "false"
   optimization_type   = "GeneralWebDelivery"
-  origin_host_header  = "${module.query_url.stdout}"
+ # origin_host_header  = "${module.query_url.stdout}"
   querystring_caching_behaviour = "IgnoreQueryString"
   
   origin {
     name      = "assets"
-    host_name = "${module.query_url.stdout}"
+ #   host_name = "${module.query_url.stdout}"
 	https_port = "443"
   }
-  depends_on = ["module.query_url"]
+
 }
