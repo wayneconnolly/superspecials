@@ -89,9 +89,9 @@ steps:
       ARM_ACCESS_KEY: $(ARM_ACCESS_KEY)
       
 
-- script: |
-    az storage blob delete-batch -s \$web --account-name $(BLOB_NAME)
-  displayName: 'clean content'
+#- script: |
+#    az storage blob delete-batch -s \$web --account-name $(BLOB_NAME)
+#  displayName: 'clean content'
 
 - script: |
     az storage blob upload-batch -s super -d \$web --account-name $(BLOB_NAME)
