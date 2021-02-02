@@ -14,7 +14,7 @@ resource "azurerm_resource_group" "demo-rg" {
 }
 
 # Create a Storage Account and enable Static website hosting
-resource "azurerm_storage_account" "super" {
+resource "azurerm_storage_account" "vstsbuildterraform" {
   name                     = "${var.dns_name}"
   location                 = "${azurerm_resource_group.demo-rg.location}"
   resource_group_name      = "${azurerm_resource_group.demo-rg.name}"
