@@ -8,13 +8,13 @@ terraform {
 provider "azurerm" {}
 
 # Create a resource group if it doesn’t exist
-resource "azurerm_resource_group" "demo-rg" {
+resource "azurerm_resource_group" "superspecials" {
   name     = "${var.rg-name}"
   location = "${var.location}"
 }
 
 # Create a Storage Account and enable Static website hosting
-resource "azurerm_storage_account" "vstsbuildterraform" {
+resource "azurerm_storage_account" "superspecials" {
   name                     = "${var.dns_name}"
   location                 = "${azurerm_resource_group.demo-rg.location}"
   resource_group_name      = "${azurerm_resource_group.demo-rg.name}"
@@ -27,30 +27,3 @@ resource "azurerm_storage_account" "vstsbuildterraform" {
   }
 }
 
-
-# Create Azure CDN profile
-resource "azurerm_cdn_profile" "webblob-cdn" {
-  name                = "${azurerm_storage_account.webblob.name}cdnprofile"
-  location            = "${azurerm_resource_group.demo-rg.location}"
-  resource_group_name = "${azurerm_resource_group.demo-rg.name}"
-  sku                 = "Standard_Verizon"
-}
-
-# Point Azure CDN profile to web endpoint for Static website
-resource "azurerm_cdn_endpoint" "webblob-cdn-endpt" {
-  name                = "${var.dns_name}"
-  profile_name        = "${azurerm_cdn_profile.webblob-cdn.name}"
-  location            = "${azurerm_resource_group.demo-rg.location}"
-  resource_group_name = "${azurerm_resource_group.demo-rg.name}"
-  is_http_allowed 	  = "false"
-  optimization_type   = "GeneralWebDelivery"
- # origin_host_header  = "${module.query_url.stdout}"
-  querystring_caching_behaviour = "IgnoreQueryString"
-  
-  origin {
-    name      = "assets"
- #   host_name = "${module.query_url.stdout}"
-	https_port = "443"
-  }
-
-}
