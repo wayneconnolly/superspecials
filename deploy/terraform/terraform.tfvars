@@ -1,3 +1,3 @@
 location        = "Australia Southeast"
 resource_group  = "superspecialstf"
-storage_account = "terraform"
+storage_account = "superspecialsterraformsite"
