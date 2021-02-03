@@ -6,14 +6,20 @@ resources:
 pool:
   vmImage: 'Ubuntu 20.04'
 
-container: terraform_container
-
 trigger:
   branches:
     include:
     - master
 
 steps:
+- script: |
+    wget https://releases.hashicorp.com/terraform/0.14.5/terraform_0.14.5_linux_amd64.zip
+    apt install zip -y
+    unzip terraform_0.14.5_linux_amd64.zip
+    mv terraform /usr/local/bin/ 
+    terraform -version 
+  displayName: 'Get terraform' 
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -63,6 +69,7 @@ steps:
 
 - script: |
     ls -la
+    ls -la super
   displayName: 'Display contents'
 
 
@@ -78,9 +85,8 @@ steps:
 - script: |
     cd deploy/terraform
     terraform init -backend-config=backend.tfvars
-#    az storage blob lease break -b superspecials.terraform.tfstate -c "vstsbuildterraform" --account-name $(ARM_CLIENT_ID) --account-key $(ARM_ACCESS_KEY)
     terraform apply -auto-approve
-  displayName: 'Terraform init, plan and apply'
+  displayName: 'Terraform init plan and apply'
   env:
       ARM_TENANT_ID: $(ARM_TENANT_ID)
       ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
