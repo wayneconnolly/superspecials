@@ -1,18 +1,14 @@
-variable "app_name" {
-  type = string
-  default = "superspecials"
-}
-
 variable "location" {
-  type = string
-  default = "Australia Southeast"
+  type        = string
+  description = "Azure Region Location"
 }
 
-variable "environment" {
-  type = string
-  default = "prod"
+variable "resource_group" {
+  type        = string
+  description = "Resource Group Name"
 }
 
-locals {
-  storage_account_name = "st${var.app_name}${var.environment}"
+variable "storage_account" {
+  type        = string
+  description = "Storage Account Name"
 }
