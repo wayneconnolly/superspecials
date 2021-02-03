@@ -7,7 +7,7 @@ variable "location" {
 variable "resource_group" {
   type        = string
   description = "Resource Group Name"
-  default = "superspecials"
+  default = "superspecialstf"
 }
 
 variable "storage_account" {

@@ -1,3 +1,3 @@
 location        = "Australia Southeast"
-resource_group  = "superspecials"
-storage_account = "vstsbuildterraform"
+resource_group  = "superspecialstf"
+storage_account = "terraform"
