@@ -61,7 +61,6 @@ steps:
  
 - script: |
     ls -la
-    ls -la super
   displayName: 'Display contents'
 
 
