@@ -84,9 +84,10 @@ steps:
 
 - script: |
     cd deploy/terraform
+    terraform -version
     terraform init -backend-config=backend.tfvars
-    terraform apply -auto-approve
-  displayName: 'Terraform init plan and apply'
+    terraform apply
+  displayName: 'Terraform init, plan and apply'
   env:
       ARM_TENANT_ID: $(ARM_TENANT_ID)
       ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
