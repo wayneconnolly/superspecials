@@ -1,3 +1,3 @@
 storage_account_name="vstsbuildterraform"
 container_name="terraform-state"
-key="superspecials.terraform.tfstate"
+key="terraform.tfstate"
