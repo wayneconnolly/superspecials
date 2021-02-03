@@ -28,7 +28,7 @@ steps:
 - script: |
     cd deploy/terraform
     terraform -version
-    terraform init
+    terraform init -lock=false -input=false -backend-config=terraform.tfvars
     terraform plan
     terraform apply -auto-approve -input=false -var-file=terraform.tfvars
   displayName: 'Terraform init, plan and apply'
@@ -44,10 +44,7 @@ steps:
 #    az storage blob delete-batch -s \$web --account-name $(BLOB_NAME)
 #  displayName: 'clean content'
 
-- script: |
-    az storage blob upload-batch -s super -d \$web --account-name $(BLOB_NAME)
-  displayName: 'copy content and site is ready https://$(BLOB_NAME).azureedge.net/index.html'
-  
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -62,39 +59,6 @@ steps:
     gatsby build
   displayName: 'gatsby build'
  
-
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: 'public'
-    contents: '**' 
-    targetFolder: $(Build.ArtifactStagingDirectory)
-    cleanTargetFolder: true 
-  displayName: 'copy Super Specials site'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'super' 
-    publishLocation: 'Container' 
-
-- task: DownloadBuildArtifacts@0
-  inputs:
-    buildType: 'current' # Options: current, specific
-    #project: 'gatsby-starter-default' # Required when buildType == Specific
-    #pipeline: 'super-specials' # Required when buildType == Specific
-    #specificBuildWithTriggering: false # Optional
-    #buildVersionToDownload: 'latest' # Required when buildType == Specific# Options: latest, latestFromBranch, specific
-    #branchName: 'refs/heads/master' # Required when buildType == Specific && BuildVersionToDownload == LatestFromBranch
-    #buildId: # Required when buildType == Specific && BuildVersionToDownload == Specific
-    #tags: # Optional
-    downloadType: 'single' # Options: single, specific
-    artifactName: 'super' # Required when downloadType == Single
-    #itemPattern: '**' # Optional
-    downloadPath: '.' 
-    #parallelizationLimit: '8' # Optional
-  
-
-
 - script: |
     ls -la
     ls -la super
@@ -105,3 +69,7 @@ steps:
 # az login
 # az ad sp create-for-rbac --name wayne-superspecials
 
+- script: |
+    az storage blob upload-batch -s super -d \$web --account-name $(BLOB_NAME)
+  displayName: 'copy content and site is ready'
+  
