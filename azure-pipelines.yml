@@ -28,7 +28,7 @@ steps:
 - script: |
     cd deploy/terraform
     terraform -version
-    terraform init -backend-config=backend.tfvars
+    terraform init
     terraform plan
     terraform apply
   displayName: 'Terraform init, plan and apply'
