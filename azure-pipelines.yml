@@ -70,6 +70,6 @@ steps:
 # az ad sp create-for-rbac --name wayne-superspecials
 
 - script: |
-    az storage blob upload-batch -s super -d \$web --account-name $(BLOB_NAME)
+    az storage blob upload-batch -s public -d \$web --account-name sscolestfsite
   displayName: 'copy content and site is ready'
   
