@@ -13,5 +13,5 @@ variable "resource_group" {
 variable "storage_account" {
   type        = string
   description = "Storage Account Name"
-  default = "site"
+  default = "sscolestfsite"
 }
