@@ -2,7 +2,9 @@ provider "azurerm" {
     features {}
 }
 terraform {
-  backend "azurerm" {}
+  backend "local" {
+    path = "terraform.tfstate"
+  }
 }
 data "azurerm_client_config" "current" {}
 
