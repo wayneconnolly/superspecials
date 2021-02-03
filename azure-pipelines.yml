@@ -21,6 +21,32 @@ steps:
     terraform -version 
   displayName: 'Get terraform' 
 
+- script: |
+    az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
+  displayName: 'Enable AZ  Login'
+
+- script: |
+    cd deploy/terraform
+    terraform -version
+    terraform init -backend-config=backend.tfvars
+    terraform apply
+  displayName: 'Terraform init, plan and apply'
+  env:
+      ARM_TENANT_ID: $(ARM_TENANT_ID)
+      ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
+      ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+      ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+      ARM_ACCESS_KEY: $(ARM_ACCESS_KEY)
+      
+
+#- script: |
+#    az storage blob delete-batch -s \$web --account-name $(BLOB_NAME)
+#  displayName: 'clean content'
+
+- script: |
+    az storage blob upload-batch -s super -d \$web --account-name $(BLOB_NAME)
+  displayName: 'copy content and site is ready https://$(BLOB_NAME).azureedge.net/index.html'
+  
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -78,29 +104,3 @@ steps:
 # az login
 # az ad sp create-for-rbac --name wayne-superspecials
 
-- script: |
-    
-    az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
-  displayName: 'Enable AZ  Login'
-
-- script: |
-    cd deploy/terraform
-    terraform -version
-    terraform init -backend-config=backend.tfvars
-    terraform apply
-  displayName: 'Terraform init, plan and apply'
-  env:
-      ARM_TENANT_ID: $(ARM_TENANT_ID)
-      ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
-      ARM_CLIENT_ID: $(ARM_CLIENT_ID)
-      ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
-      ARM_ACCESS_KEY: $(ARM_ACCESS_KEY)
-      
-
-#- script: |
-#    az storage blob delete-batch -s \$web --account-name $(BLOB_NAME)
-#  displayName: 'clean content'
-
-- script: |
-    az storage blob upload-batch -s super -d \$web --account-name $(BLOB_NAME)
-  displayName: 'copy content and site is ready https://$(BLOB_NAME).azureedge.net/index.html'
