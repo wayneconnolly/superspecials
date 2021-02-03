@@ -1,24 +1,23 @@
 provider "azurerm" {
-    # The "feature" block is required for AzureRM provider 2.x.
-    # If you're using version 1.x, the "features" block is not allowed.
-    version = "~>2.0"
     features {}
 }
-
+terraform {
+  backend "azurerm" {}
+}
 data "azurerm_client_config" "current" {}
 
 #Create Resource Group
 resource "azurerm_resource_group" "resource_group" {
-  name     = var.resource_group
-  location = var.location
+  name     = "${var.resource_group}"
+  location = "${var.location}"
 }
 
 #Create Storage account
 resource "azurerm_storage_account" "storage_account" {
-  name                = var.storage_account
-  resource_group_name = azurerm_resource_group.resource_group.name
+  name                = "${var.storage_account}"
+  resource_group_name = "${azurerm_resource_group.resource_group.name}"
 
-  location                 = var.location
+  location                 = "${var.location}"
   account_tier             = "Standard"
   account_replication_type = "LRS"
   account_kind             = "StorageV2"
@@ -29,9 +28,9 @@ resource "azurerm_storage_account" "storage_account" {
 }
 
 #Add index.html to blob storage
-resource "azurerm_storage_blob" "example" {
+resource "azurerm_storage_blob" "site" {
   name                   = "index.html"
-  storage_account_name   = azurerm_storage_account.storage_account.name
+  storage_account_name   = "${azurerm_resource_group.storage_account.name}"
   storage_container_name = "$web"
   type                   = "Block"
   content_type           = "text/html"
